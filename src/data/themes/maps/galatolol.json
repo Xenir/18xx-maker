@@ -1,0 +1,38 @@
+{
+  "name": "Galatolol",
+  "colors": {
+    "yellow": "#FFEB00",
+    "green": "#71BF44",
+    "brown": "#BF8156",
+    "gray": "#A9AFB2",
+
+    "par_gray": "#d4d7d8",
+
+    "plain": "#F5F5DC", 
+    "offboard": "#EC2126",
+    "mountain": "#795138",
+    "water": "#67A7C4",
+    "land": "#59B578",
+
+    "orange": "#F58121",
+
+    "white": "#fff",
+    "black": "#110A0C",
+
+    "track": "#110A0C",
+    "border": "#fff",
+    "city": "#fff",
+    "town": "#110A0C",
+    "centerTown": "#110A0C",
+    "halt": "#666",
+
+    "green_dark": "#2c6d1e",
+
+    "orange_light": "#f79d52",
+    "yellow_light": "#ffeb33",
+    "blue_light": "#0375dc",
+    "red_light": "#e0474e",
+    "black_light": "#4d4d4d",
+    "gray_light": "#dcdfe0"
+  }
+}

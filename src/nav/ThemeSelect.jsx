@@ -11,6 +11,7 @@ const ThemeSelect = ({scheme, setScheme}) => {
     <div className="select">
       <h3>Theme</h3>
       <select value={scheme} onChange={handleChange}>
+        <option value="galatolol">Galatolol</option>
         <option value="gmt">GMT</option>
         <option value="dtg">Deep Thought</option>
         <option value="aag">All Aboard Games</option>
