@@ -34,6 +34,7 @@ const Terrain = ({ type, size, cost, fontSize, color }) => {
     scale = 2;
     break;
   default:
+    scale = 1.5;
     break;
   }
 
