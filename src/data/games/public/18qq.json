@@ -1441,7 +1441,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1477,7 +1477,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1499,7 +1499,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1521,7 +1521,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1545,7 +1545,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1575,7 +1575,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1640,7 +1640,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1676,21 +1676,7 @@
         ]
       },
       {
-        "color": "plain",
-        "centerTowns": [
-          {
-            "name": {
-              "name": "Clapsaddle",
-              "reverse": true
-            }
-          }
-        ],
-        "hexes": [
-          "D6"
-        ]
-      },
-      {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1721,7 +1707,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1896,7 +1882,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1932,7 +1918,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1954,7 +1940,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -1977,7 +1963,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -2001,7 +1987,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -2023,7 +2009,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -2048,7 +2034,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -2176,7 +2162,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "river",
         "terrain": [
           {
             "type": "river",
@@ -2189,7 +2175,7 @@
         ]
       },
       {
-        "color": "plain",
+        "color": "mountain",
         "mountain": {
           "size": "medium",
           "cost": 60
