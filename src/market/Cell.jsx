@@ -167,11 +167,14 @@ const Cell = ({ cell, data, par }) => {
                         fill={labelColor}
                         fontFamily="txt"
                         fontSize="15"
-                        textAnchor={rotated ? "end" : "state"}
+                        // textAnchor={rotated ? "end" : "state"}
                         textDecoration={cell.underline ? "underline" : null}
                         dominantBaseline="hanging"
-                        x={rotated ? -5 : 5}
-                        y="5"
+                        //x={rotated ? -5 : 5}
+                        //y="5"
+                        textAnchor="middle"
+                        x={width/2}
+                        y="65"
                       >
                         {text}
                       </text>
