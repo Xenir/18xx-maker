@@ -41,7 +41,6 @@ const Revenue = ({data, title}) => {
           <g>
             <text
               fontFamily="txt"
-              fontStyle="bold"
               fontSize="25"
               dominantBaseline="hanging"
               x="0"

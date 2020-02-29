@@ -82,7 +82,6 @@ const Cell = ({ cell, data, par }) => {
                       stroke={c("black")}
                       strokeWidth={0.5}
                       fontFamily="txt"
-                      fontStyle="bold"
                       fontSize="15"
                       textAnchor={left ? "start" : "end"}
                       dominantBaseline="baseline"
@@ -167,7 +166,6 @@ const Cell = ({ cell, data, par }) => {
                         transform={rotated ? "rotate(-90)" : null}
                         fill={labelColor}
                         fontFamily="txt"
-                        fontStyle="bold"
                         fontSize="15"
                         textAnchor={rotated ? "end" : "state"}
                         textDecoration={cell.underline ? "underline" : null}
@@ -183,7 +181,6 @@ const Cell = ({ cell, data, par }) => {
                         transform={subRotated ? "rotate(-90)" : null}
                         fill={labelColor}
                         fontFamily="txt"
-                        fontStyle="bold"
                         fontSize="15"
                         textAnchor="start"
                         dominantBaseline={subRotated ? (cell.right ? "baseline" : "hanging") : "baseline"}

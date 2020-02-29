@@ -26,7 +26,6 @@ const Industry = ({ top, bottom }) => {
             strokeWidth="2"
           />
           <text
-            fontWeight="bold"
             fontSize={12}
             fontFamily="txt"
             fill={c("pink")}
@@ -38,7 +37,6 @@ const Industry = ({ top, bottom }) => {
             {top}
           </text>
           <text
-            fontWeight="bold"
             fontSize={12}
             fontFamily="txt"
             fill={c("pink")}

@@ -30,7 +30,7 @@ const Name = ({ name, strokeColor, strokeWidth, color, bgColor, path, doRotation
           fontFamily={fontFamily || "txt"}
           fontSize={fontSize || 11}
           fontStyle={fontStyle || "regular"}
-          fontWeight={fontWeight || "bold"}
+          fontWeight={fontWeight}
           textLength={textLength}
           textAnchor="middle"
         >

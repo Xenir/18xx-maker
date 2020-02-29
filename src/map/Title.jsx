@@ -27,7 +27,6 @@ const Title = ({ game, variation, hexWidth }) => {
           <text
             fill={c("black")}
             fontFamily="titles"
-            fontWeight="bold"
             fontSize={size}
             textAnchor="start"
             lengthAdjust="spacingAndGlyphs"
@@ -40,7 +39,6 @@ const Title = ({ game, variation, hexWidth }) => {
             <text
               fill={c("black")}
               fontFamily="titles"
-              fontWeight="bold"
               fontSize={subSize}
               textAnchor="start"
               lengthAdjust="spacingAndGlyphs"
@@ -53,7 +51,6 @@ const Title = ({ game, variation, hexWidth }) => {
           <text
             fill={c("black")}
             fontFamily="titles"
-            fontWeight="bold"
             fontSize={designerSize}
             textAnchor="start"
             lengthAdjust="spacingAndGlyphs"

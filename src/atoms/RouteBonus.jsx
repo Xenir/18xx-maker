@@ -21,7 +21,6 @@ const RouteBonus = ({ value, size, fillColor, strokeColor, textColor }) => {
             strokeWidth="1"
           />
           <text
-            fontWeight="bold"
             fontSize={size}
             fontFamily="txt"
             fill={c(textColor)}

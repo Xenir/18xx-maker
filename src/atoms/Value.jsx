@@ -59,7 +59,6 @@ const Value = ({ value, shape, fixed, outerBorderColor }) => {
                       {bg}
                       <text
                         transform={fixed ? null : `rotate(-${rotation})`}
-                        fontWeight="bold"
                         fontSize={size}
                         fontFamily="txt"
                         fill={p("black")}
