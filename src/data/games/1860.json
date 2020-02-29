@@ -17,22 +17,22 @@
     "Round"
   ],
   "ipo": true,
-  "bank": 10000,
+  "bank": "£10000 + 5000cc",
   "players": [
     {
       "number": 2,
       "certLimit": 32,
-      "capital": 1000
+      "capital": "£1000"
     },
     {
       "number": 3,
       "certLimit": 21,
-      "capital": 670
+      "capital": "£670"
     },
     {
       "number": 4,
       "certLimit": 16,
-      "capital": 500
+      "capital": "£500"
     }
   ],
   "tokenTypes": {
@@ -1320,6 +1320,7 @@
           "terrain": [
             {
               "type": "mountain",
+              "size": "large",
               "angle": 270,
               "percent": 0.4,
               "cost": "£60"
@@ -1358,6 +1359,7 @@
         {
           "color": "plain",
           "mountain": {
+            "size": "large",
             "cost": "£60"
           },
           "hexes": [
@@ -1416,6 +1418,7 @@
           "terrain": [
             {
               "type": "mountain",
+              "size": "large",
               "angle": 270,
               "percent": 0.4,
               "cost": "£60"
