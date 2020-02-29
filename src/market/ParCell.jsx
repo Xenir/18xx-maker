@@ -62,7 +62,7 @@ const ParCell = ({ cell, data }) => {
                   <text
                     transform={rotated ? "rotate(-90)" : null}
                     fill={labelColor}
-                    fontFamily="display"
+                    fontFamily="txt"
                     fontStyle="bold"
                     fontSize="15"
                     textAnchor={rotated ? "end" : "state"}
@@ -78,7 +78,7 @@ const ParCell = ({ cell, data }) => {
                   <text
                     transform={subRotated ? "rotate(-90)" : null}
                     fill={labelColor}
-                    fontFamily="display"
+                    fontFamily="txt"
                     fontStyle="bold"
                     fontSize="15"
                     textAnchor="start"

@@ -40,7 +40,7 @@ const Revenue = ({data, title}) => {
         return (
           <g>
             <text
-              fontFamily="display"
+              fontFamily="txt"
               fontStyle="bold"
               fontSize="25"
               dominantBaseline="hanging"

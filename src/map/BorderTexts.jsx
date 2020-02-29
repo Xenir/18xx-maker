@@ -12,7 +12,7 @@ const BorderText = ({ text, data }) => {
   let color = text.color || "black";
   let fontSize = text.fontSize || 13;
   let fontWeight = text.fontWeight || "normal";
-  let fontFamily = text.fontFamily || "display";
+  let fontFamily = text.fontFamily || "txt";
   let rotation = text.rotation || 0;
 
   let bgColor = text.bgColor || "white";

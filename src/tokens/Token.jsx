@@ -316,7 +316,7 @@ const Token = ({
                                     height={size} width={size} />);
             content.push(<text
                            key="text"
-                           fontFamily="display"
+                           fontFamily="txt"
                            fontSize={width * 0.48}
                            textAnchor="middle"
                            strokeWidth="0.5"
@@ -350,7 +350,7 @@ const Token = ({
           }
           content.push(<text
                          key="text"
-                         fontFamily="display"
+                         fontFamily="txt"
                          fontSize={fontSize}
                          textAnchor="middle"
                          strokeWidth="0.5"

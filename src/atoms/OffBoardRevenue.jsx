@@ -55,7 +55,7 @@ const makeNode = (x, y, reverse, revenue, size) => {
           textLength={length}
           lengthAdjust="spacingAndGlyphs"
           x={x + 0.5 * width}
-          y={y - 10 + (size / 2) + 2}
+          y={y - 10 + (size / 2) + 3}
         >
           <Currency value={value} type="offboard" />
         </text>
