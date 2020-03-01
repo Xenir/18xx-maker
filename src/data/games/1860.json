@@ -70,7 +70,7 @@
   "companies": [
     {
       "name": "Cowes & Newport",
-      "abbrev": "C&N",
+      "abbrev": "CN",
       "color": "cyan",
       "tokens": "four",
       "shares": [
@@ -151,12 +151,12 @@
     },
     {
       "name": "Newport, Godshill & St. Lawrence",
-      "abbrev": "NGStL",
+      "abbrev": "NGSL",
       "color": "yellow"
     },
     {
       "name": "Brading Harbour Improvement & Railway",
-      "abbrev": "BHI&R",
+      "abbrev": "BHIR",
       "color": "pink",
       "shares": [
         {
@@ -180,7 +180,7 @@
     },
     {
       "name": "Shanklin & Chale",
-      "abbrev": "S&C",
+      "abbrev": "SC",
       "color": "purple"
     },
     {
@@ -292,8 +292,8 @@
       "name": "Brading Harbour Company",
       "price": 30,
       "revenue": 5,
-      "company": "BHI&R",
-      "description": "Can be exchanged for a share in the BHI&R pubilc company."
+      "company": "BHIR",
+      "description": "Can be exchanged for a share in the BHIR pubilc company."
     },
     {
       "name": "Yarmouth Harbour Company",
@@ -306,8 +306,8 @@
       "name": "Cowes Marina and Harbour",
       "price": 90,
       "revenue": 20,
-      "company": "C&N",
-      "description": "Can be exchanged for a share in the C&N public company."
+      "company": "CN",
+      "description": "Can be exchanged for a share in the CN public company."
     },
     {
       "name": "Ryde Pier & Shipping Company",
@@ -555,7 +555,7 @@
         "legend": 0,
         "companies": [
           {
-            "abbrev": "S&C",
+            "abbrev": "SC",
             "row": 7
           },
           {
@@ -573,15 +573,15 @@
         "legend": 0,
         "companies": [
           {
-            "abbrev": "NGStL",
+            "abbrev": "NGSL",
             "row": 5
           },
           {
-            "abbrev": "BHI&R",
+            "abbrev": "BHIR",
             "row": 6
           },
           {
-            "abbrev": "S&C",
+            "abbrev": "SC",
             "row": 7
           },
           {
@@ -607,15 +607,15 @@
             "row": 4
           },
           {
-            "abbrev": "NGStL",
+            "abbrev": "NGSL",
             "row": 5
           },
           {
-            "abbrev": "BHI&R",
+            "abbrev": "BHIR",
             "row": 6
           },
           {
-            "abbrev": "S&C",
+            "abbrev": "SC",
             "row": 7
           },
           {
@@ -641,11 +641,11 @@
             "row": 4
           },
           {
-            "abbrev": "NGStL",
+            "abbrev": "NGSL",
             "row": 5
           },
           {
-            "abbrev": "BHI&R",
+            "abbrev": "BHIR",
             "row": 6
           }
         ],
@@ -659,7 +659,7 @@
         "legend": 0,
         "companies": [
           {
-            "abbrev": "C&N",
+            "abbrev": "CN",
             "row": 1
           },
           {
@@ -685,7 +685,7 @@
         "legend": 0,
         "companies": [
           {
-            "abbrev": "C&N",
+            "abbrev": "CN",
             "row": 1
           },
           {
@@ -711,7 +711,7 @@
         "legend": 0,
         "companies": [
           {
-            "abbrev": "C&N",
+            "abbrev": "CN",
             "row": 1
           },
           {
@@ -729,7 +729,7 @@
         "legend": 0,
         "companies": [
           {
-            "label": "C&N",
+            "label": "CN",
             "color": "cyan",
             "row": 1
           },
@@ -975,7 +975,7 @@
               "name": {
                 "name": "Cowes"
               },
-              "companies": ["C&N"]
+              "companies": ["CN"]
             }
           ],
           "centerTowns": [
@@ -1397,7 +1397,7 @@
               "name": {
                 "name": "Bembridge"
               },
-              "companies": ["BHI&R"]
+              "companies": ["BHIR"]
             }
           ],
           "hexes": [
@@ -1560,7 +1560,7 @@
                 "name": "Godshill",
                 "reverse": true
               },
-              "companies": ["NGStL"]
+              "companies": ["NGSL"]
             }
           ],
           "hexes": [
@@ -1618,7 +1618,7 @@
               "name": {
                 "name": "Chale"
               },
-              "companies": ["S&C"]
+              "companies": ["SC"]
             }
           ],
           "hexes": [
