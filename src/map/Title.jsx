@@ -26,7 +26,7 @@ const Title = ({ game, variation, hexWidth }) => {
         >
           <text
             fill={c("black")}
-            fontFamily="titles"
+            fontFamily="mir"
             fontSize={size}
             textAnchor="start"
             lengthAdjust="spacingAndGlyphs"
@@ -38,7 +38,7 @@ const Title = ({ game, variation, hexWidth }) => {
           {game.info.subtitle && (
             <text
               fill={c("black")}
-              fontFamily="titles"
+              fontFamily="mir"
               fontSize={subSize}
               textAnchor="start"
               lengthAdjust="spacingAndGlyphs"
@@ -50,7 +50,7 @@ const Title = ({ game, variation, hexWidth }) => {
           )}
           <text
             fill={c("black")}
-            fontFamily="titles"
+            fontFamily="mir"
             fontSize={designerSize}
             textAnchor="start"
             lengthAdjust="spacingAndGlyphs"

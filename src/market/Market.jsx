@@ -202,7 +202,7 @@ const Market = ({data, title}) => {
   return (
     <g>
       <text
-        fontFamily="titles"
+        fontFamily="mir"
         fontStyle="bold"
         fontSize="25"
         dominantBaseline="hanging"

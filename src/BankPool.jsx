@@ -64,7 +64,7 @@ const BankPool = () => {
                               stroke="black"
                               fill="white" />
                         <text
-                          fontFamily="titles"
+                          fontFamily="mir"
                           fontSize="25"
                           dominantBaseline="hanging"
                           x="0"
