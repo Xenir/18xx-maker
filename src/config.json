@@ -1,23 +1,28 @@
 {
-  "paper": {
-    "width": 826.77165354,
-    "height": 1169.291338578,
-    "margins": 23.622047244
-  },
-  "maps": {
-    "roundTracker": false
-  },
-  "plainMapCompanies": true,
-  "theme": "galatolol",
-  "companiesTheme": "galatolol",
-  "tiles": {
-    "layout": "offset",
-    "width": 142.5
-  },
-  "stock": {
-    "display": {
-      "legend": false
-    }
-  },
-  "pagination": "equal"
+    "paper": {
+        "width": 826.77165354,
+            "height": 1169.291338578,
+            "margins": 23.622047244
+
+    },
+        "maps": {
+            "roundTracker": false
+
+        },
+        "plainMapCompanies": true,
+        "theme": "galatolol",
+        "companiesTheme": "galatolol",
+        "tiles": {
+            "layout": "offset"
+
+        },
+        "stock": {
+            "display": {
+                "legend": false
+
+            }
+
+        },
+        "pagination": "equal"
+
 }
