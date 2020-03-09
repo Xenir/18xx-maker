@@ -932,16 +932,13 @@
     "789": 1,
     "1749": 3,
     "BL-A5": {
-      "color": "gray",
-      "names": [{"name": "Blocks A5"}]
+      "color": "gray"
     },
     "BL-A7": {
-      "color": "gray",
-      "names": [{"name": "Blocks A7"}]
+      "color": "gray"
     },
     "BL-E11": {
-      "color": "gray",
-      "names": [{"name": "Blocks E11"}]
+      "color": "gray"
     }
   },
   "map": {
