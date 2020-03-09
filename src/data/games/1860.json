@@ -6,7 +6,7 @@
     "background": "water",
     "orientation": "horizontal",
     "titleY": 720,
-    "titleX": 12,
+    "titleX": 6,
     "currency": "GBP"
   },
   "links": {
@@ -932,9 +932,7 @@
     "789": 1,
     "1749": 3
   },
-  "map": [
-    {
-      "name": "2 Player",
+  "map": {
       "print": "landscape",
       "players": {
         "x": 1300,
@@ -946,6 +944,46 @@
         "y": 630
       },
       "hexes": [
+        {
+          "color": "plain",
+          "centerTowns": [
+            {
+              "name": {
+                "name": "Norton Green"
+              }
+            }
+          ],
+          "hexes": [
+            "A5"
+          ]
+        },
+        {
+          "color": "plain",
+          "cities": [
+            {
+              "name": {
+                "name": "Totland"
+              }
+            }
+          ],
+          "hexes": [
+            "A7"
+          ]
+        },
+        {
+          "color": "plain",
+          "cities": [
+            {
+              "name": {
+                "name": "Yarmouth"
+              },
+              "companies": ["FYN"]
+            }
+          ],
+          "hexes": [
+            "B4"
+          ]
+        },
         {
           "color": "plain",
           "centerTowns": [
@@ -1624,76 +1662,6 @@
           "hexes": [
             "F12"
           ]
-        }
-      ],
-      "borders": [
-        {
-          "color": "mountain",
-          "coords": ["F2p3", "F2p4", "F2p5", "F4p4"]
-        },
-        {
-          "color": "mountain",
-          "coords": ["I7p2", "I7p3"]
-        },
-        {
-          "color": "mountain",
-          "coords": ["I11p2", "I11p3"]
-        }
-      ]
-    },
-    {
-      "name": "3-4 Player",
-      "print": "landscape",
-      "players": {
-        "x": 1300,
-        "y": 730
-      },
-      "roundTracker": {
-        "type": "row",
-        "x": 0,
-        "y": 630
-      },
-      "copy": 0,
-      "hexes": [
-        {
-          "color": "plain",
-          "centerTowns": [
-            {
-              "name": {
-                "name": "Norton Green"
-              }
-            }
-          ],
-          "hexes": [
-            "A5"
-          ]
-        },
-        {
-          "color": "plain",
-          "cities": [
-            {
-              "name": {
-                "name": "Totland"
-              }
-            }
-          ],
-          "hexes": [
-            "A7"
-          ]
-        },
-        {
-          "color": "plain",
-          "cities": [
-            {
-              "name": {
-                "name": "Yarmouth"
-              },
-              "companies": ["FYN"]
-            }
-          ],
-          "hexes": [
-            "B4"
-          ]
         },
         {
           "color": "plain",
@@ -1721,5 +1689,4 @@
         }
       ]
     }
-  ]
 }
