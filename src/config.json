@@ -1,4 +1,6 @@
 {
+  "cutlines": 12.5,
+  "margin": 12.5,
   "paper": {
     "width": 826.77165354,
     "height": 1169.291338578,
@@ -12,7 +14,7 @@
   "companiesTheme": "galatolol",
   "tiles": {
     "layout": "offset",
-    "width": 142.5
+    "mapWidth": 156
   },
   "stock": {
     "display": {
