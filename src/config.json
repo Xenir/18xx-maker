@@ -13,6 +13,7 @@
   "theme": "galatolol",
   "companiesTheme": "galatolol",
   "tiles": {
+    "id": "left",
     "layout": "offset",
     "mapWidth": 156
   },
