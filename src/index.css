@@ -48,11 +48,9 @@ p {
 
 .map {
   position: relative;
-  padding: 0.0625in;
 }
 
 .map svg {
-  margin: 0 auto;
   display: block;
 }
 
@@ -345,7 +343,7 @@ svg {
 }
 
 .charter__phase td {
-  padding: 0.03in 0.05in;
+  padding: 0.03in 0.03in;
   border: 1px solid black;
   text-align: center;
   vertical-align: top;
@@ -355,6 +353,12 @@ svg {
 .charter__phase td.phase__notes {
   text-align: left;
   white-space: normal;
+}
+
+.charter .charter__phase ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .charter dl {
@@ -739,12 +743,27 @@ footer a:hover {
   footer,
   .LegalNotes,
   .PrintNotes,
+  .MuiAppBar-root,
+  .MuiDrawer-root,
+  .MuiSnackbar-root,
+  .MuiFab-root,
+  .MuiTooltip-popper,
   .WIP {
-    display: none;
+    display: none !important;
+  }
+
+  .MuiBox-root {
+    width: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .map {
     padding: 0;
+  }
+
+  .stock {
+    margin: 0;
   }
 
   .tokens {

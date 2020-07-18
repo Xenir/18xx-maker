@@ -1,40 +1,36 @@
 import React from "react";
+import { useOrientation } from "../context/OrientationContext";
 import Color from "../data/Color";
-
-import HexContext from "../context/HexContext";
 
 const edge = 150 * 0.57735;
 
-const Border = ({ color, dashed, offset }) => {
+const Border = ({ color, dashed, offset, width }) => {
+  const rotation = useOrientation();
+
   let strokeDashArray = "none";
   let strokeDashOffset = "-3";
-  let width = 16;
   if (dashed) {
-    strokeDashArray = `${width}`;
+    strokeDashArray = `${width || 16}`;
     if (offset) {
       strokeDashOffset = `${offset}`;
     }
   }
   return (
-    <HexContext.Consumer>
-      {hx => (
-        <Color context="companies">
-          {c => (
-            <path
-              d={`m ${0.5 * edge} 75 L ${-0.5 * edge} 75`}
-              fill="none"
-              stroke={c(color)}
-              strokeWidth="10"
-              strokeDasharray={strokeDashArray}
-              strokeDashoffset={strokeDashOffset}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              transform={`rotate(${hx.rotation})`}
-            />
-          )}
-        </Color>
+    <Color context="companies">
+      {c => (
+        <path
+          d={`m ${0.5 * edge} 75 L ${-0.5 * edge} 75`}
+          fill="none"
+          stroke={c(color)}
+          strokeWidth="10"
+          strokeDasharray={strokeDashArray}
+          strokeDashoffset={strokeDashOffset}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          transform={`rotate(${rotation})`}
+        />
       )}
-    </HexContext.Consumer>
+    </Color>
   );
 };
 

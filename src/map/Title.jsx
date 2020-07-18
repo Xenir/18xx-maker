@@ -1,11 +1,23 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useContext } from "react";
+import ConfigContext from "../context/ConfigContext";
 import Color from "../data/Color";
 
 const Title = ({ game, variation, hexWidth }) => {
+  const { config } = useContext(ConfigContext);
+  hexWidth = hexWidth || config.tiles.width;
+
   let scale = hexWidth / 150.0;
-  let size = (game.info.titleSize || 200) * scale;
-  let subSize = (game.info.subTitleSize || 30) * scale;
+
+  let titleFont = game.info.titleFontFamily || "mir";
+  let titleWeight = game.info.titleFontWeight || "bold";
+  let titleSize = (game.info.titleSize || 200) * scale;
+
+  let subtitleFont = game.info.subtitleFontFamily || game.info.titleFontFamily || "mir";
+  let subtitleWeight = game.info.subtitleFontWeight || game.info.titleFontWeight || "bold";
+  let subtitleSize = (game.info.subtitleSize || 30) * scale;
+
+  let designerFont = game.info.designerFontFamily || game.info.titleFontFamily || "mir";
+  let designerWeight = game.info.designerFontWeight || game.info.titleFontWeight || "bold";
   let designerSize = (game.info.designerSize || 20) * scale;
 
   let mapName = null;
@@ -26,8 +38,9 @@ const Title = ({ game, variation, hexWidth }) => {
         >
           <text
             fill={c("black")}
-            fontFamily="mir"
-            fontSize={size}
+            fontFamily={titleFont}
+            fontWeight={titleWeight}
+            fontSize={titleSize}
             textAnchor="start"
             lengthAdjust="spacingAndGlyphs"
             x="0"
@@ -38,24 +51,26 @@ const Title = ({ game, variation, hexWidth }) => {
           {game.info.subtitle && (
             <text
               fill={c("black")}
-              fontFamily="mir"
-              fontSize={subSize}
+              fontFamily={subtitleFont}
+              fontWeight={subtitleWeight}
+              fontSize={subtitleSize}
               textAnchor="start"
               lengthAdjust="spacingAndGlyphs"
               x="0"
-              y={subSize + 10}
+              y={subtitleSize + 10}
             >
               {game.info.subtitle}
             </text>
           )}
           <text
             fill={c("black")}
-            fontFamily="mir"
+            fontFamily={designerFont}
+            fontWeight={designerWeight}
             fontSize={designerSize}
             textAnchor="start"
             lengthAdjust="spacingAndGlyphs"
             x="0"
-            y={designerSize + 10 + (game.info.subtitle ? (subSize + 10) : 0)}
+            y={designerSize + 10 + (game.info.subtitle ? (subtitleSize + 10) : 0)}
           >
             by {game.info.designer}
             {mapName && ` ⋯ ${mapName}`}
@@ -66,7 +81,4 @@ const Title = ({ game, variation, hexWidth }) => {
   );
 };
 
-const mapStateToProps = (state, {hexWidth}) => ({
-  hexWidth: hexWidth || state.config.tiles.width
-});
-export default connect(mapStateToProps)(Title);
+export default Title;

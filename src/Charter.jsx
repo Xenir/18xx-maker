@@ -1,10 +1,11 @@
-import React from "react";
-import { connect } from "react-redux";
+import React, { useContext } from "react";
+import ConfigContext from "./context/ConfigContext";
+import ColorContext from "./context/ColorContext";
+
 import CompanyToken from "./tokens/CompanyToken";
 import Token from "./tokens/Token";
 import Phase from "./Phase";
 import Color from "./data/Color";
-import ColorContext from "./context/ColorContext";
 import { unitsToCss } from "./util";
 import Currency from "./util/Currency";
 
@@ -22,41 +23,49 @@ const Charter = ({
   tokens,
   phases,
   turns,
-  charterStyle,
+  trains,
   game,
-  halfWidthCharters,
   company,
-  blackBand,
   backgroundColor,
   variant
 }) => {
-  let tokenSpots = addIndex(map)((label, index) => {
-    // Color charters just use empty token circles, carth style uses full
-    // company tokens.
-    let companyToken = charterStyle === "color" ?
-        <Token outline="black" /> :
-        <CompanyToken company={company} />;
+  const { config } = useContext(ConfigContext);
+  const charterStyle = config.charters.style;
+  const halfWidthCharters = config.charters.halfWidth;
+  const blackBand = config.charters.blackBand;
+ 
+  let tokenSpots = [];
+  if (tokens) {
+    tokenSpots = addIndex(map)((label, index) => {
+      // Color charters just use empty token circles, carth style uses full
+      // company tokens.
+      let companyToken = charterStyle === "color" ?
+          <Token outline="black" /> :
+          <CompanyToken company={company} />;
 
-    return (
-      <svg key={`token-${index}`}>
-        <g transform={`translate(25 25)`}>
-          <ColorContext.Provider value="companies">
-            {companyToken}
-          </ColorContext.Provider>
-          <g transform={`${halfWidthCharters ? "rotate(-90) " : ""}translate(0 39)`}>
-            <Color context="companies">
-              {(c, t) => (
-                <text fill={(charterStyle === "color" && !halfWidthCharters) ? t(c(color)) : c("black")}
-                      fontSize="11" fontWeight="normal" textAnchor="middle">
-                  <Currency value={label} type="token"/>
-                </text>
-              )}
-            </Color>
+      return (
+        <svg key={`token-${index}`}>
+          <g transform={`translate(25 25)`}>
+            <ColorContext.Provider value="companies">
+              {companyToken}
+            </ColorContext.Provider>
+            <g transform={`${halfWidthCharters ? "rotate(-90) " : ""}translate(0 39)`}>
+              <Color context="companies">
+                {(c, t) => (
+                  <text fill={(charterStyle === "color" && !halfWidthCharters) ? t(c(color)) : c("black")}
+                        fontSize="11" fontWeight="normal" textAnchor="middle">
+                    <Currency value={label} type="token"/>
+                  </text>
+                )}
+              </Color>
+            </g>
           </g>
-        </g>
-      </svg>
-    );
-  }, tokens);
+        </svg>
+      );
+    }, tokens);
+  } else {
+    tokens = [];
+  }
 
   let turnNodes = chain(turn => {
     let steps = addIndex(map)((step, i) => {
@@ -125,7 +134,10 @@ const Charter = ({
                   <div className="charter__trains">
                     Trains
                     <div className="charter__phase">
-                      <Phase phases={phases} minor={!!minor} company={company.abbrev} />
+                      <Phase phases={phases}
+                             trains={trains}
+                             minor={!!minor}
+                             company={company.abbrev} />
                     </div>
                   </div>
                 )}
@@ -150,10 +162,4 @@ const Charter = ({
   );
 };
 
-const mapStateToProps = state => ({
-  charterStyle: state.config.charters.style,
-  halfWidthCharters: state.config.charters.halfWidth,
-  blackBand: state.config.charters.blackBand
-});
-
-export default connect(mapStateToProps)(Charter);
+export default Charter;

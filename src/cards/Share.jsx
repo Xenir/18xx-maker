@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import ConfigContext from "../context/ConfigContext";
+
 import CompanyToken from "../tokens/CompanyToken";
 import Color from "../data/Color";
 import ColorContext from "../context/ColorContext";
 
-import Config from "../data/Config";
+import Currency from "../util/Currency";
 
-import is from "ramda/src/is";
 import min from "ramda/src/min";
 
 import "./share.scss";
@@ -30,10 +31,11 @@ const LeftShare = ({
   blackBand,
   variant
 }) => {
+
   let count = shares > 1 ? `${shares} Shares` : `${shares} Share`;
 
   let tokens = [];
-  let sharesLeft = tokenCount || shares;
+  let sharesLeft = tokenCount || shares || 1;
   while(sharesLeft > 0) {
     tokens.push(
       <div key={sharesLeft} className="share__token">
@@ -99,9 +101,9 @@ const LeftShare = ({
                 {name && <div className="share__name"><div>{name}</div></div>}
                 {subtext && <div className="share__subtext"><div>{subtext}</div></div>}
                 {shares && <div className="share__shares">{count}</div>}
-                {cost && <div className="share__shares">{cost}</div>}
+                {cost && <div className="share__shares"><Currency value={cost} type="share"/></div>}
                 {percent && <div className="share__percent">{percent}%</div>}
-                {revenue && <div className="share__percent">Revenue: {revenue}</div>}
+                {revenue && <div className="share__percent">Revenue: <Currency value={revenue} type="share"/></div>}
                 <div className="share__tokens">
                   <ColorContext.Provider value="companies">
                     {tokens}
@@ -132,6 +134,7 @@ const LeftShare = ({
 };
 
 const CenterShare = ({
+  color,
   cost,
   revenue,
   shares,
@@ -176,7 +179,7 @@ const CenterShare = ({
                  }}>
               <Color context="companies">
                 {(c,t) => (
-                  <div className="share__hr" style={{ backgroundColor: c(is(Object,token) ? token.colors[0] : token) }} />
+                  <div className="share__hr" style={{ backgroundColor: c(color) }} />
                 )}
               </Color>
               <div className="card__body">
@@ -216,17 +219,16 @@ const CenterShare = ({
   );
 };
 
-const Share = (props) => (
-  <Config>
-    {config => {
-      if(config.cards.shareStyle === "left") {
-        return <LeftShare {...props} blackBand={config.cards.blackBand} shareStyle="left" />;
-      } else if (config.cards.shareStyle === "gmt") {
-        return <LeftShare {...props} blackBand={config.cards.blackBand} shareStyle="gmt" />;
-      } else {
-        return <CenterShare {...props} />;
-      }
-    }}
-  </Config>
-);
+const Share = (props) => {
+  const { config } = useContext(ConfigContext);
+
+  if(config.cards.shareStyle === "left") {
+    return <LeftShare {...props} blackBand={config.cards.blackBand} shareStyle="left" />;
+  } else if (config.cards.shareStyle === "gmt") {
+    return <LeftShare {...props} blackBand={config.cards.blackBand} shareStyle="gmt" />;
+  } else {
+    return <CenterShare {...props} />;
+  }
+};
+
 export default Share;

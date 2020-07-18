@@ -4,13 +4,14 @@ import hash from "object-hash";
 
 import Position from "./Position";
 
-import HexContext from "./context/HexContext";
 import PhaseContext from "./context/PhaseContext";
 import ColorContext from "./context/ColorContext";
+import { useOrientation } from "./context/OrientationContext";
 
 import Border from "./atoms/Border";
 import Bridge from "./atoms/Bridge";
 import CenterTown from "./atoms/CenterTown";
+import Boomtown from "./atoms/Boomtown";
 import City from "./atoms/City";
 import Company from "./atoms/Company";
 import Divide from "./atoms/Divide";
@@ -32,6 +33,8 @@ import Tunnel from "./atoms/Tunnel";
 import TunnelEntrance from "./atoms/TunnelEntrance";
 import Value from "./atoms/Value";
 
+import Shape from "./atoms/shapes/Shape";
+
 import GameMapCompanyToken from "./tokens/GameMapCompanyToken";
 import Token from "./tokens/Token";
 
@@ -49,6 +52,8 @@ const makeBorder = track => (
 );
 
 const HexTile = ({ hex, id, mask, border, transparent, map }) => {
+  const rotation = useOrientation();
+
   if (hex === undefined || hex === null) {
     return null;
   }
@@ -58,7 +63,15 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   let getTracks = R.converge(concat, [
     R.compose(
       R.map(makeBorder),
-      R.filter(t => t.cross !== "over")
+      R.filter(t => t.cross === "bottom")
+    ),
+    R.compose(
+      R.map(makeTrack),
+      R.filter(t => t.cross === "bottom")
+    ),
+    R.compose(
+      R.map(makeBorder),
+      R.filter(t => (t.cross === undefined || t.cross === "under"))
     ),
     R.compose(
       R.map(makeTrack),
@@ -70,7 +83,15 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
     ),
     R.compose(
       R.map(makeTrack),
-      R.filter(t => t.cross !== "under")
+      R.filter(t => (t.cross === undefined || t.cross === "over"))
+    ),
+    R.compose(
+      R.map(makeBorder),
+      R.filter(t => t.cross === "top")
+    ),
+    R.compose(
+      R.map(makeTrack),
+      R.filter(t => t.cross === "top")
     )
   ]);
 
@@ -118,7 +139,18 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   );
   let centerTownBorders = (
     <Position data={hex.centerTowns}>
-      {t => <CenterTown border={true} />}
+      {t => <CenterTown border={true} {...t} />}
+    </Position>
+  );
+
+  let boomtowns = (
+    <Position data={hex.boomtowns}>
+      {t => <Boomtown bgColor={hex.color} {...t} />}
+    </Position>
+  );
+  let boomtownBorders = (
+    <Position data={hex.boomtowns}>
+      {t => <Boomtown border={true} {...t} />}
     </Position>
   );
 
@@ -127,7 +159,7 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   );
   let mediumCityBorders = (
     <Position data={hex.mediumCities}>
-      {m => <MediumCity border={true} />}
+      {m => <MediumCity border={true} {...m} />}
     </Position>
   );
 
@@ -163,6 +195,8 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
       terrainHexes.push({ ...hex.water, type: "water" });
     }
   }
+  let bgShapes = <Position data={R.filter(s => s.background, hex.shapes || [])}>{s => <Shape {...s}/>}</Position>;
+  let shapes = <Position data={R.reject(s => s.background, hex.shapes || [])}>{s => <Shape {...s}/>}</Position>;
   let terrain = (
     <Position data={terrainHexes}>{t => <Terrain {...t} />}</Position>
   );
@@ -217,42 +251,41 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   return (
     <g>
       <PhaseContext.Provider value={hex.color || "plain"}>
-        <HexContext.Consumer>
-          {hx => (
-            <g
-              mask={`url(#${mask || "hexMask"})`}
-              transform={`rotate(${hx.rotation || 0})`}
-            >
-              <Hex
-                color={hex.color || "plain"}
-                transparent={transparent}
-                map={map}
-              />
+        <g
+          mask={`url(#${mask || "hexMask"})`}
+          transform={`rotate(${rotation || 0})`}
+        >
+          <Hex
+            color={hex.color || "plain"}
+            transparent={transparent}
+            map={map}
+          />
 
-              <g transform={`rotate(-${hx.rotation})`}>
-                {goods}
-                {icons}
-                {tunnelEntranceBorders}
-                {cityBorders}
-                {mediumCityBorders}
-                {townBorders}
-                {tracks}
-                {tunnelEntrances}
-                {cities}
-                {mediumCities}
-                {towns}
-                {centerTownBorders}
-                {centerTowns}
-                {values}
-                {labels}
-                {tokens}
-                {terrain}
-                {divides}
-                {borders}
-              </g>
-            </g>
-          )}
-        </HexContext.Consumer>
+          <g transform={`rotate(-${rotation})`}>
+            {bgShapes}
+            {goods}
+            {tunnelEntranceBorders}
+            {cityBorders}
+            {mediumCityBorders}
+            {townBorders}
+            {tracks}
+            {tunnelEntrances}
+            {cities}
+            {mediumCities}
+            {towns}
+            {boomtownBorders}
+            {boomtowns}
+            {centerTownBorders}
+            {centerTowns}
+            {values}
+            {labels}
+            {tokens}
+            {terrain}
+            {icons}
+            {divides}
+            {borders}
+          </g>
+        </g>
 
         <HexBorder
           removeBorders={hex.removeBorders}
@@ -268,6 +301,7 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
         {industries}
         {companies}
         {names}
+        {shapes}
         {tunnels}
         {bridges}
         {offBoardRevenue}

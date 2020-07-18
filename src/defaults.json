@@ -23,6 +23,7 @@
     "par": false,
     "private": true,
     "revenue": false,
+    "share": true,
     "terrain": true,
     "token": true,
     "train": true,
@@ -43,6 +44,9 @@
   "ipo": {
     "borderRadius": 11.811
   },
+  "export": {
+    "allLayouts": false
+  },
   "charters": {
     "style": "color",
     "cutlines": 25,
@@ -55,7 +59,7 @@
     "shareStyle": "gmt",
     "layout": "miniEuroDie",
     "width": 265.748,
-    "height":  173.228,
+    "height": 173.228,
     "cutlines": 25,
     "bleed": 12.5,
     "border": 0,
@@ -65,6 +69,7 @@
     "layout": "free",
     "marketTokenSize": 50,
     "stationTokenSize": 37.5,
+    "generalTokenSize": 50,
     "bleed": true,
     "reverseMarketTokens": "all"
   },
@@ -73,6 +78,7 @@
     "images": false
   },
   "tiles": {
+    "id": "right",
     "layout": "die",
     "width": 150,
     "mapWidth": 150,
