@@ -8,13 +8,16 @@
 
     "par_gray": "#d4d7d8",
 
-    "plain": "#F5F5DC", 
+    "plain": "#F5F5DC",
     "offboard": "#EC2126",
     "mountain": "#795138",
     "water": "#67A7C4",
+    "water_dark": "#2e5f76",
+    "water_light": "#D1E4ED",
     "land": "#59B578",
 
     "orange": "#F58121",
+    "salmon": "#FCB2AA",
 
     "white": "#fff",
     "black": "#110A0C",
@@ -33,6 +36,17 @@
     "blue_light": "#0375dc",
     "red_light": "#e0474e",
     "black_light": "#4d4d4d",
-    "gray_light": "#dcdfe0"
+    "gray_light": "#dcdfe0",
+
+    "red": "#ff0000",
+
+    "xxpaper_yellow": "#f0e68c",
+    "xxpaper_green": "#a4d3a6",
+    "xxpaper_blue": "#93ccea",
+    "xxpaper_red": "#e66771",
+    "xxpaper_purple": "#c9a0dc",
+    "xxpaper_orange": "#ffae42",
+    "xxpaper_brown": "#cba98f",
+    "xxpaper_gray": "#b3b3b3"
   }
 }
