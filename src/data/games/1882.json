@@ -31,16 +31,16 @@
       "tokens": "three"
     },
     {
-      "abbrev": "CP",
+      "abbrev": "CPR",
       "color": "red",
       "logo": "CPR",
       "name": "Canadian Pacific Railway",
       "tokens": "four"
     },
     {
-      "abbrev": "GT",
+      "abbrev": "GTP",
       "color": "black",
-      "logo": "GT",
+      "logo": "GTP",
       "name": "Grand Trunk Pacific",
       "tokens": "three"
     },
@@ -528,7 +528,7 @@
         "offBoardRevenue": {
           "angle": 15,
           "name": {
-            "name": "Western Ca333nada"
+            "name": "Western Canada"
           },
           "percent": 0.2,
           "revenues": [
@@ -798,7 +798,7 @@
             "name": {
               "name": "Swift Current"
             },
-            "companies": ["CP"]
+            "companies": ["CPR"]
           }
         ],
         "color": "plain",
@@ -818,7 +818,7 @@
         "names": [
           {
             "y": -8,
-            "name": "doesn't count as stop",
+            "name": "does not count as a stop",
             "fontStyle": "Italic",
             "fontFamily": "txt"
           }
@@ -1005,7 +1005,7 @@
             "name": {
               "name": "Assiniboia"
             },
-            "companies": ["GT"]
+            "companies": ["GTP"]
           }
         ],
         "color": "plain",
@@ -1646,7 +1646,7 @@
       },
       "roundTracker": {
         "type": "col-reverse",
-        "x": 9,
+        "x": 10,
         "y": 5
       },
       "legend": {
