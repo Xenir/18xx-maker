@@ -59,7 +59,7 @@ const atoms = [{
              {names: [{name: "Austin", percent: 0.6, angle: 240}]},
              {names: [{name: "Seattle", percent: 0.6, rotate: -60, angle: 120}]},
              {names: [{name: "Los Angeles",
-                       fontFamily: "display", fontSize: 20,
+                       fontFamily: "txt", fontSize: 20,
                        color: "yellow", strokeWidth: 1}]},
              {names: [{name: "Paris", fontFamily: "Elegante", fontSize: 16, fontWeight: "normal", fontStyle: "italic"}]}],
 },{

@@ -43,7 +43,6 @@ const Cell = ({ cell, par, game, config, data }) => {
 
             // Standard colors
             let color = cell.color ? c(cell.color) : ((data.cell && data.cell.color) ? c(data.cell.color) : c("plain"));
->>>>>>> upstream/master
             let arrowColor = cell.arrowColor ? c(cell.arrowColor) : c("black");
 
             // Check if legend is used
@@ -79,7 +78,7 @@ const Cell = ({ cell, par, game, config, data }) => {
                   fill={arrowColor}
                   stroke={c("black")}
                   strokeWidth={0.5}
-                  fontFamily="display"
+                  fontFamily="txt"
                   fontStyle="bold"
                   fontSize="15"
                   textAnchor={left ? "start" : "end"}

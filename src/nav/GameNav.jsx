@@ -31,7 +31,6 @@ import GameIcon from "@material-ui/icons/Train";
 import LicenseIcon from "@material-ui/icons/Lock";
 import PurchaseIcon from "@material-ui/icons/MonetizationOn";
 import RulesIcon from "@material-ui/icons/Gavel";
->>>>>>> upstream/master
 import WarningIcon from "@material-ui/icons/Warning";
 
 import File from "../util/File";

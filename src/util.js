@@ -252,7 +252,7 @@ export const overrideCompanies = (companies, override, selections) => {
 export const getFontProps = (props, size, weight, family, style) => {
   return mergeAll([
     {
-      fontFamily: "display",
+      fontFamily: "txt",
       fontSize: 12,
       fontStyle: "regular",
       fontWeight: "bold",
