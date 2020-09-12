@@ -2,7 +2,7 @@ import React from "react";
 
 import { useTranslation } from "react-i18next";
 
-import { tiles } from "@18xx-maker/games";
+import tiles from "../../data/tiles";
 
 import { useRangeParam, useStringParam } from "../../util/query";
 
@@ -91,7 +91,7 @@ const Tiles = () => {
       return false;
     }
 
-    if (id !== "" && t.id !== id) {
+    if (id !== "" && !t.id.startsWith(id)) {
       return false;
     }
 

@@ -8,7 +8,7 @@ export const getMaxLength = reduce((acc, row) => {
   return max(acc, length(row));
 }, 0);
 
-// Give the stock section of a game and the stock config.json section, compute
+// Given the stock section of a game and the stock config.json section, compute
 // data that we need.
 export const getMarketData = (stock, config) => {
   let {
@@ -19,23 +19,27 @@ export const getMarketData = (stock, config) => {
   let height = 0;
   let rows = 0;
   let columns = 0;
+  let cellWidth =
+    (stock.cell && stock.cell.width ? stock.cell.width : 1) * cell.width;
+  let cellHeight =
+    (stock.cell && stock.cell.height ? stock.cell.height : 1) * cell.height;
 
   switch (stock.type) {
     case "1Diag":
-      width = cell.width;
-      height = diag * cell.height;
+      width = cellWidth;
+      height = diag * cellHeight;
       rows = 2;
       columns = Math.ceil(length(stock.market) / 2);
       break;
     case "1D":
-      width = cell.width;
-      height = column * cell.height;
+      width = cellWidth;
+      height = column * cellHeight;
       rows = 1;
       columns = length(stock.market);
       break;
     case "2D":
-      width = cell.width;
-      height = cell.height;
+      width = cellWidth;
+      height = cellHeight;
       rows = length(stock.market);
       columns = getMaxLength(stock.market);
       break;
@@ -80,6 +84,7 @@ export const getMarketData = (stock, config) => {
     legend: stock.legend || [],
     market: stock.market || [],
     par: stock.par || {},
+    cell: stock.cell || {},
     display: stock.display || {},
     width,
     height,

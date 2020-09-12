@@ -6,7 +6,7 @@ import GameContext from "../context/GameContext";
 import Name from "./Name";
 import Currency from "../util/Currency";
 
-import Color from "../data/Color";
+import Color from "../util/Color";
 
 import defaultTo from "ramda/src/defaultTo";
 
@@ -61,6 +61,7 @@ const makeNode = (x, y, reverse, revenue, size, fontFamily) => {
           lengthAdjust="spacingAndGlyphs"
           x={x + 0.5 * width}
           y={y - 10 + (size / 2) + 3}
+          // y={y - 10 + (size / 2) + 2}
         >
           <Currency value={value} type="offboard" />
         </text>
