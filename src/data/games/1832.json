@@ -178,38 +178,43 @@
     },
     {
       "name": "Atlanta & West Point Railroad",
-      "abbrev": "A&WP",
+      "abbrev": "AWP",
       "logo": "1832/AWP",
       "color": "purple",
       "tokens": "two"
     },
     {
       "name": "Seaboard Air Line Railway",
-      "abbrev": "SALR",
+      "abbrev": "SAL",
       "logo": "1832/SALR",
       "color": "orange"
     },
     {
       "name": "Norfolk & Western Railway",
-      "abbrev": "N&W",
+      "abbrev": "NW",
       "logo": "1832/NW",
       "color": "black"
     },
     {
       "name": "Central of Georgia Railway",
-      "abbrev": "COG",
+      "abbrev": "CG",
       "logo": "1832/COG",
       "color": "turquoise"
     },
     {
+      "name": "Key West",
+      "abbrev": "K.West",
+      "color": "green"
+    },
+    {
       "name": "Louisville & Nashville Railroad",
-      "abbrev": "L&N",
+      "abbrev": "NW",
       "logo": "1832/LN",
       "color": "blue"
     },
     {
       "name": "Georgia Railroad",
-      "abbrev": "GRR",
+      "abbrev": "GR",
       "logo": "1832/GRR",
       "color": "cyan",
       "tokens": "two"
@@ -228,7 +233,7 @@
     },
     {
       "name": "Florida East Coast Railroad",
-      "abbrev": "FECR",
+      "abbrev": "FEC",
       "logo": "1832/FECR",
       "tokens": ["Free", 40, "$100 (KW)"],
       "color": "yellow"
@@ -348,8 +353,8 @@
       "name": "Central Railroad & Canal",
       "price": 200,
       "revenue": 30,
-      "company": "COG",
-      "description": "Comes with the president's share of the Central of Georgia Railway. The player buying this private company must immediately set the par value of the CoG. "
+      "company": "CG",
+      "description": "Comes with the president's share of the Central of Georgia Railway. The player buying this private company must immediately set the par value of the CG. "
     }
   ],
   "phases": [
@@ -547,6 +552,46 @@
         },
         {
           "label": 68,
+          "width": "1.5in"
+        },
+        {
+          "label": "64",
+          "color": "yellow",
+          "width": "1.5in"
+        },
+        {
+          "label": "60",
+          "color": "yellow",
+          "width": "1.5in"
+        },
+        {
+          "label": "55",
+          "color": "yellow",
+          "width": "1.5in"
+        },
+        {
+          "label": "50",
+          "color": "yellow",
+          "width": "1.5in"
+        },
+        {
+          "label": "40",
+          "color": "yellow",
+          "width": "1.5in"
+        },
+        {
+          "label": "30",
+          "color": "yellow",
+          "width": "1.5in"
+        },
+        {
+          "label": "20",
+          "color": "yellow",
+          "width": "1.5in"
+        },
+        {
+          "label": "10",
+          "color": "yellow",
           "width": "1.5in"
         }
       ]
@@ -1351,7 +1396,7 @@
           {
             "angle": 60,
             "percent": 0.6,
-            "companies": ["N&W"]
+            "companies": ["NW"]
           }
         ],
         "track": [
@@ -1420,7 +1465,7 @@
             "name": {
               "name": "Nashville"
             },
-            "companies": ["L&N"]
+            "companies": ["NW"]
           }
         ],
         "hexes": ["C7"]
@@ -1610,7 +1655,7 @@
             "name": {
               "name": "Raleigh"
             },
-            "companies": ["SALR"]
+            "companies": ["SAL"]
           }
         ],
         "hexes": ["D20"]
@@ -1795,7 +1840,7 @@
             "name": {
               "name": "Atlanta"
             },
-            "companies": ["A&WP"]
+            "companies": ["AWP"]
           },
           {
             "angle": 150,
@@ -1804,7 +1849,7 @@
           {
             "angle": 270,
             "percent": 0.5,
-            "companies": ["GRR"]
+            "companies": ["GR"]
           }
         ],
         "hexes": ["F10"]
@@ -2009,7 +2054,7 @@
             "name": {
               "name": "Savannah"
             },
-            "companies": ["COG"]
+            "companies": ["CG"]
           }
         ],
         "hexes": ["H16"]
@@ -2211,7 +2256,7 @@
             "name": {
               "name": "Jacksonville"
             },
-            "companies": ["FECR"]
+            "companies": ["FEC"]
           }
         ],
         "hexes": ["J14"]
@@ -2377,10 +2422,10 @@
         "cities": [
           {
             "name": {
-              "name": "Key West",
+              "name": "",
               "offset": 75
             },
-            "companies": ["FECR"]
+            "companies": ["K.West"]
           }
         ],
         "offBoardRevenue": {
