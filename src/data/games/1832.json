@@ -488,16 +488,16 @@
       "values": [
         {
           "label": 275,
-          "color": "yellow"
+          "color": "salmon"
         },
         {
           "label": 250,
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": 225,
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
@@ -556,42 +556,42 @@
         },
         {
           "label": "64",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": "60",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": "55",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": "50",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": "40",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": "30",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": "20",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         },
         {
           "label": "10",
-          "color": "yellow",
+          "color": "salmon",
           "width": "1.5in"
         }
       ]
@@ -1331,10 +1331,7 @@
         ],
         "offBoardRevenue": {
           "angle": 180,
-          "percent": 0.4,
-          "name": {
-            "name": "W. Va. Coalfields"
-          },
+          "percent": 0.35,
           "revenues": [
             {
               "color": "yellow",
@@ -1356,6 +1353,16 @@
         "names": [
           {
             "name": "$80",
+            "percent": 0.55
+          },
+          {
+            "name": "West",
+            "angle": 180,
+            "percent": 0.7
+          },
+          {
+            "name": "Virginia Coalfields",
+            "angle": 180,
             "percent": 0.55
           }
         ],
@@ -2471,6 +2478,25 @@
             "type": "offboard"
           }
         ]
+      },
+      {
+        "hexes": ["N18"],
+        "color": "white",
+        "names": [
+          {
+            "name": "worth $0 the first time",
+            "angle": 180,
+            "percent": 0.15
+          },
+          {
+            "name": "it is used before"
+          },
+          {
+            "name": "first 5T purchased",
+            "percent": 0.15
+          }
+        ],
+        "removeBorders": [3, 4, 5, 6]
       }
     ]
   }
