@@ -403,16 +403,16 @@
       },
       {
         "type": "gentle",
-        "side": 3,
+        "side": 6,
         "cross": "under"
       },
       {
         "type": "gentle",
-        "side": 5
+        "side": 2
       },
       {
         "type": "sharp",
-        "side": 3
+        "side": 6
       }
     ]
   },
@@ -426,16 +426,16 @@
       },
       {
         "type": "gentle",
-        "side": 3,
+        "side": 6,
         "cross": "under"
       },
       {
         "type": "sharp",
-        "side": 4
+        "side": 1
       },
       {
         "type": "gentle",
-        "side": 1
+        "side": 4
       }
     ]
   },
