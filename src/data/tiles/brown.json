@@ -3489,15 +3489,15 @@
       },
       {
         "value": 20,
-        "angle": 25,
+        "angle": 275,
         "percent": 0.75
       }
     ],
     "labels": [
       {
         "label": "N",
-        "angle": 270,
-        "percent": 0.8
+        "angle": 210,
+        "percent": 0.95
       }
     ],
     "cities": [
