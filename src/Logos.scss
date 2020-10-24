@@ -13,11 +13,12 @@
     margin: 0;
 
     span {
-      font-size: .4em;
+      font-size: 0.4em;
     }
   }
 
-  p, ul {
+  p,
+  ul {
     font-family: txt;
   }
 
@@ -43,4 +44,4 @@
   a:hover {
     text-decoration: none;
   }
-};
+}

@@ -19,38 +19,59 @@ const Value = ({ value, shape, fixed, outerBorderColor }) => {
 
   return (
     <RotateContext.Consumer>
-      {rotation => (
+      {(rotation) => (
         <Color>
-          {(c,t,s,p) => {
+          {(c, t, s, p) => {
             let outline = null;
-            let bg = null
+            let bg = null;
             if (shape === "square") {
               if (outerBorderColor) {
                 outline = (
-                  <rect stroke={p(outerBorderColor)} strokeWidth="7"
-                        x={-rx} y={-ry}
-                        width={2*rx} height={2*ry} />
+                  <rect
+                    stroke={p(outerBorderColor)}
+                    strokeWidth="7"
+                    x={-rx}
+                    y={-ry}
+                    width={2 * rx}
+                    height={2 * ry}
+                  />
                 );
               }
 
               bg = (
-                <rect fill={p("white")} stroke={p("black")} strokeWidth="2"
-                      x={-rx} y={-ry}
-                      width={2*rx} height={2*ry} />
+                <rect
+                  fill={p("white")}
+                  stroke={p("black")}
+                  strokeWidth="2"
+                  x={-rx}
+                  y={-ry}
+                  width={2 * rx}
+                  height={2 * ry}
+                />
               );
             } else {
               if (outerBorderColor) {
                 outline = (
-                  <ellipse stroke={p(outerBorderColor)} strokeWidth="7"
-                           cx="0" cy="0"
-                           rx={rx} ry={ry} />
+                  <ellipse
+                    stroke={p(outerBorderColor)}
+                    strokeWidth="7"
+                    cx="0"
+                    cy="0"
+                    rx={rx}
+                    ry={ry}
+                  />
                 );
               }
 
               bg = (
-                <ellipse fill={p("white")} stroke={p("black")} strokeWidth="2"
-                         cx="0" cy="0"
-                         rx={rx} ry={ry}
+                <ellipse
+                  fill={p("white")}
+                  stroke={p("black")}
+                  strokeWidth="2"
+                  cx="0"
+                  cy="0"
+                  rx={rx}
+                  ry={ry}
                 />
               );
             }
@@ -67,12 +88,12 @@ const Value = ({ value, shape, fixed, outerBorderColor }) => {
                   fill={p("black")}
                   dominantBaseline="central"
                   textAnchor="middle"
-                  textLength={length > 2 ? (rx + 6) : null}
+                  textLength={length > 2 ? rx + 6 : null}
                   lengthAdjust="spacingAndGlyphs"
                   x="0"
                   y="0"
                 >
-                  <Currency value={value} type="value"/>
+                  <Currency value={value} type="value" />
                 </text>
               </g>
             );
