@@ -19,48 +19,36 @@ const BorderText = ({ text, data }) => {
   let borderColor = text.borderColor || "black";
   let borderWidth = text.borderWidth || 2;
 
-  let textNode = text.cost ? (
-    <Currency value={text.cost} type="border" />
-  ) : (
-    text.label || ""
-  );
+  let textNode = text.cost ?
+      <Currency value={text.cost} type="border" /> :
+      text.label || "";
 
   return (
     <Color context="companies">
-      {(c) => (
+      {c => (
         <g transform={`translate(${coord}) translate(0 1) rotate(${rotation})`}>
-          {text.circle && (
-            <circle
-              cx="0"
-              cy="0"
-              r={text.circle}
-              fill={c(bgColor)}
-              stroke={c(borderColor)}
-              strokeWidth={borderWidth}
-            />
-          )}
+          {text.circle && (<circle cx="0" cy="0" r={text.circle}
+                                  fill={c(bgColor)}
+                                  stroke={c(borderColor)}
+                                  strokeWidth={borderWidth}/>)}
           <text
             fill={c(color)}
             fontSize={fontSize}
             fontWeight={fontWeight}
             fontFamily={fontFamily}
             dominantBaseline="middle"
-            textAnchor="middle"
-          >
+            textAnchor="middle">
             {textNode}
           </text>
         </g>
       )}
     </Color>
   );
-};
+}
 
 const BorderTexts = ({ data }) => {
-  let texts = addIndex(map)(
-    (t, i) => <BorderText key={`border-text-${i}`} text={t} data={data} />,
-    data.borderTexts || []
-  );
+  let texts = addIndex(map)((t, i) => <BorderText key={`border-text-${i}`} text={t} data={data}/>, data.borderTexts || []);
   return texts;
-};
+}
 
 export default BorderTexts;

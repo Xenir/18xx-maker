@@ -1,25 +1,15 @@
 import React from "react";
 import Color from "./util/Color";
 
-const Legend = ({
-  color,
-  borderColor,
-  borderWidth,
-  description,
-  right,
-  bottom,
-}) => {
+const Legend = ({ color, borderColor, borderWidth, description, right, bottom }) => {
   return (
     <Color>
-      {(c, t) => (
+      {(c,t) => (
         <g>
-          <circle
-            r="12"
-            cx={right ? -20 : 20}
-            cy={bottom ? -20 : 20}
-            stroke={c(borderColor || "black")}
-            strokeWidth={borderWidth || 2}
-            fill={c(color || "orange")}
+          <circle r="12" cx={right ? -20 : 20} cy={bottom ? -20 : 20}
+                  stroke={c(borderColor || "black")}
+                  strokeWidth={borderWidth || 2}
+                  fill={c(color || "orange")}
           />
           <text
             fontFamily="txt"

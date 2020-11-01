@@ -4,12 +4,12 @@ import GameContext from "../../context/GameContext";
 import Text from "./Text";
 import Color from "../../util/Color";
 
-import { getFontProps  } from "../../util";
+import { getFontProps, multiDefaultTo } from "../../util";
 
 import defaultTo from "ramda/src/defaultTo";
 
 const Triangle = (props) => {
-  let { text, textColor, color, opacity, borderColor, borderWidth, width, dashed, reverse } = props;
+  let { text, textColor, fontFamily, color, opacity, borderColor, borderWidth, width, dashed, reverse } = props;
   const { game } = useContext(GameContext);
 
   let scale = defaultTo(50, width) / 50;
@@ -23,7 +23,7 @@ const Triangle = (props) => {
   // let y2 = -25 * scale * (reverse ? -1 : 1);
 
   let font = getFontProps(props, 16 * scale, undefined,
-    defaultTo(undefined, game.info.valueFontFamily));
+    multiDefaultTo(undefined, game.info.valueFontFamily, fontFamily));
   let strokeDashArray = dashed ? `${width / 7.142857143} ${width / 7.142857143}` : undefined;
 
   return (
@@ -37,7 +37,7 @@ const Triangle = (props) => {
                 strokeWidth={defaultTo(2, borderWidth)}
                 strokeDasharray={strokeDashArray}
                 strokeLinecap="round" />
-          <Text {...font} text={text} color={textColor}/>
+          <Text {...font} text={text} color={textColor} fontFamily={fontFamily}/>
         </g>
       )}
     </Color>

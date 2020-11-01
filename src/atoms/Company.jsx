@@ -6,7 +6,7 @@ const Company = ({ label, reverse, bottom, left, right, radius, color }) => {
   radius = radius || 6;
 
   let y = bottom ? radius : -radius;
-  let ty = reverse ? 5 * y : -y;
+  let ty = reverse ? (5*y) : -y;
 
   let x = label.length * 3 + 5;
   let r = (x + (right || 0) + (x + (left || 0))) * 2;
@@ -16,9 +16,7 @@ const Company = ({ label, reverse, bottom, left, right, radius, color }) => {
       {(c, t, s, p) => (
         <g>
           <path
-            d={`M ${-x - (left || 0)} ${y} A ${r} ${r} 0 0 ${bottom ? 0 : 1} ${
-              x + (right || 0)
-            } ${y}`}
+            d={`M ${-x - (left || 0)} ${y} A ${r} ${r} 0 0 ${bottom ? 0 : 1} ${x + (right || 0)} ${y}`}
             stroke={p("black")}
             strokeWidth="1"
             fill="none"
