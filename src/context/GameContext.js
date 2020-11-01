@@ -42,7 +42,7 @@ const loadFile = (file) => {
     });
 };
 
-// Given a game id, attempts to find it locally
+// Give a game id attempts to find it locally or in @18xx-maker/games
 const loadBundledGame = (id) => {
   let gameInfo = games[id];
 
@@ -146,11 +146,7 @@ export const GameProvider = ({ children }) => {
         );
         return <Redirect to="/games/" />;
       }
-    } else if (
-      !isNil(game) &&
-      games[match.params.slug] &&
-      match.params.slug === game.id
-    ) {
+    } else if (!isNil(game) && match.params.slug === game.id) {
       checkForChanges(match.params.slug);
     }
   }

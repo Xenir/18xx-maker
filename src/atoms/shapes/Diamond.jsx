@@ -3,12 +3,12 @@ import GameContext from "../../context/GameContext";
 import Text from "./Text";
 import Color from "../../util/Color";
 
-import { getFontProps, multiDefaultTo } from "../../util";
+import { getFontProps  } from "../../util";
 
 import defaultTo from "ramda/src/defaultTo";
 
 const Diamond = (props) => {
-  let { text, textColor, fontFamily,
+  let { text, textColor,
         color, opacity,
         borderColor, borderWidth, width, dashed } = props;
   const { game } = useContext(GameContext);
@@ -17,7 +17,7 @@ const Diamond = (props) => {
   let x = 25 * scale;
 
   let font = getFontProps(props, 14 * scale, undefined,
-    multiDefaultTo(undefined, game.info.valueFontFamily, fontFamily));
+    defaultTo(undefined, game.info.valueFontFamily));
   let strokeDashArray = dashed ? `${width / 7.142857143} ${width / 7.142857143}` : undefined;
 
   return (

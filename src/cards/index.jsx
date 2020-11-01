@@ -70,7 +70,6 @@ const Cards = ({ hidePrivates, hideShares, hideTrains, hideNumbers }) => {
           {...share}
           subtext={company.subtext || share.subtext}
           variant={company.variant || share.variant}
-          fontFamily={company.fontFamily || game.info.companyFontFamily}
         />
       ),
       shares

@@ -68,7 +68,7 @@ const Tiles = () => {
                       height: `${height}px`}}
               viewBox={viewBox}>
               <g transform={`rotate(${rotation})`}>
-                <RotateContext.Provider value={{fixed:false, angle:rotation}}>
+                <RotateContext.Provider value={rotation}>
                   <Tile id={tile.id} border={true} gameTiles={game.tiles} />
                 </RotateContext.Provider>
               </g>

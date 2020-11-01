@@ -3,6 +3,7 @@ import {withRouter} from "react-router";
 
 import Svg from "./Svg";
 import Tile from "./Tile";
+import { tiles } from "@18xx-maker/games";
 
 import keys from "ramda/src/keys";
 
@@ -10,7 +11,6 @@ const randomTile = () => keys(tiles)[Math.floor(Math.random() * keys(tiles).leng
 
 const RandomTile = ({ history }) => {
   let [tile, setTile] = useState(randomTile());
-  let tiles = require("../src/data/tiles/").default;
 
   // Handle listening to router updates
   useEffect(() => {

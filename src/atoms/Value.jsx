@@ -6,9 +6,9 @@ import Color from "../util/Color";
 import Currency, { format } from "../util/Currency";
 import RotateContext from "../context/RotateContext";
 
-import { multiDefaultTo } from "../util";
+import defaultTo from "ramda/src/defaultTo";
 
-const Value = ({ value, fontFamily, color, textColor, shape, fixed, outerBorderColor, rotation }) => {
+const Value = ({ value, shape, fixed, outerBorderColor }) => {
   const { game } = useContext(GameContext);
   const { config } = useContext(ConfigContext);
 
@@ -16,51 +16,62 @@ const Value = ({ value, fontFamily, color, textColor, shape, fixed, outerBorderC
   let size = 15;
   let ry = 14;
   let rx = length > 2 ? length * 6 : 14;
-  color = color || "white";
-  textColor = textColor || "black";
 
   return (
     <RotateContext.Consumer>
-      {rotateContext => (
+      {(rotation) => (
         <Color>
-          {(c,t,s,p) => {
+          {(c, t, s, p) => {
             let outline = null;
-            let bg = null
+            let bg = null;
             if (shape === "square") {
               if (outerBorderColor) {
                 outline = (
                   <rect
-                        transform={(fixed || rotateContext.fixed) ? null : `rotate(${-rotateContext.angle - (rotation || 0)})`}
-                        stroke={p(outerBorderColor)} strokeWidth="7"
-                        x={-rx} y={-ry}
-                        width={2*rx} height={2*ry} />
+                    stroke={p(outerBorderColor)}
+                    strokeWidth="7"
+                    x={-rx}
+                    y={-ry}
+                    width={2 * rx}
+                    height={2 * ry}
+                  />
                 );
               }
 
               bg = (
                 <rect
-                      transform={(fixed || rotateContext.fixed) ? null : `rotate(${-rotateContext.angle - (rotation || 0)})`}
-                      fill={p(color)} stroke={p("black")} strokeWidth="2"
-                      x={-rx} y={-ry}
-                      width={2*rx} height={2*ry} />
+                  fill={p("white")}
+                  stroke={p("black")}
+                  strokeWidth="2"
+                  x={-rx}
+                  y={-ry}
+                  width={2 * rx}
+                  height={2 * ry}
+                />
               );
             } else {
               if (outerBorderColor) {
                 outline = (
                   <ellipse
-                           transform={(fixed || rotateContext.fixed) ? null : `rotate(${-rotateContext.angle - (rotation || 0)})`}
-                           stroke={p(outerBorderColor)} strokeWidth="7"
-                           cx="0" cy="0"
-                           rx={rx} ry={ry} />
+                    stroke={p(outerBorderColor)}
+                    strokeWidth="7"
+                    cx="0"
+                    cy="0"
+                    rx={rx}
+                    ry={ry}
+                  />
                 );
               }
 
               bg = (
                 <ellipse
-                         transform={(fixed || rotateContext.fixed) ? null : `rotate(${-rotateContext.angle - (rotation || 0)})`}
-                         fill={p(color)} stroke={p("black")} strokeWidth="2"
-                         cx="0" cy="0"
-                         rx={rx} ry={ry}
+                  fill={p("white")}
+                  stroke={p("black")}
+                  strokeWidth="2"
+                  cx="0"
+                  cy="0"
+                  rx={rx}
+                  ry={ry}
                 />
               );
             }
@@ -70,19 +81,19 @@ const Value = ({ value, fontFamily, color, textColor, shape, fixed, outerBorderC
                 {outline}
                 {bg}
                 <text
-                  transform={(fixed || rotateContext.fixed) ? null : `rotate(${-rotateContext.angle - (rotation || 0)})`}
+                  transform={fixed ? null : `rotate(-${rotation})`}
                   fontWeight="bold"
                   fontSize={size}
-                  fontFamily={multiDefaultTo("txt", game.info.valueFontFamily, fontFamily)}
-                  fill={c(textColor) || t(c(color))}
+                  fontFamily={defaultTo("txt", game.info.valueFontFamily)}
+                  fill={p("black")}
                   dominantBaseline="central"
                   textAnchor="middle"
-                  textLength={length > 2 ? (rx + 6) : null}
+                  textLength={length > 2 ? rx + 6 : null}
                   lengthAdjust="spacingAndGlyphs"
                   x="0"
                   y="0"
                 >
-                  <Currency value={value} type="value"/>
+                  <Currency value={value} type="value" />
                 </text>
               </g>
             );

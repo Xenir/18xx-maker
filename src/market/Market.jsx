@@ -10,7 +10,6 @@ import MarketRoundTracker from "./MarketRoundTracker";
 import Legend from "../Legend";
 
 import { getParData } from "./util";
-import { multiDefaultTo } from "../util";
 
 import addIndex from "ramda/src/addIndex";
 import chain from "ramda/src/chain";
@@ -18,74 +17,155 @@ import concat from "ramda/src/concat";
 import map from "ramda/src/map";
 import reverse from "ramda/src/reverse";
 
-const Market = ({data, game, config, title}) => {
+const Market = ({ data, game, config, title }) => {
   let cells = [];
   let market = [];
   let bottomMarket = [];
 
-  const pass = {game, config, data};
+  const pass = { game, config, data };
 
   switch (data.type) {
-  case "1D":
-    bottomMarket = map(cell => cell && cell.bottom ? cell : null, data.market || []);
-    market = map(cell => cell && cell.bottom ? null : cell, data.market || []);
-    cells = addIndex(map)((cell, i) => (
-      <g key={`cell-bottom-${i}`}
-         transform={`translate(${i * data.width} ${(data.stock.title === false ? 0 : 50)})`}>
-        <Cell cell={cell} {...pass} />
-      </g>
-    ), bottomMarket);
-    cells = concat(cells, addIndex(map)((cell, i) => (
-      <g key={`cell-top-${i}`}
-         transform={`translate(${i * data.width} ${(data.stock.title === false ? 0 : 50)})`}>
-        <Cell cell={cell} {...pass} />
-      </g>
-    ), market));
-    break;
-  case "1Diag":
-    bottomMarket = map(cell => cell && cell.bottom ? cell : null, data.market || []);
-    market = map(cell => cell && cell.bottom ? null : cell, data.market || []);
-    cells = addIndex(map)((cell, i) => (
-      <g key={`cell-bottom-${i}`}
-         transform={`translate(${i * 0.5 * data.width} ${i % 2 === 0 ? (data.stock.title === false ? 0 : 50) : (data.stock.title === false ? 0 : 50) + data.height})`}>
-        <Cell cell={cell} {...pass} />
-      </g>
-    ), bottomMarket);
-    cells = concat(cells, addIndex(map)((cell, i) => (
-      <g key={`cell-top-${i}`}
-         transform={`translate(${i * 0.5 * data.width} ${i % 2 === 0 ? (data.stock.title === false ? 0 : 50) : (data.stock.title === false ? 0 : 50) + data.height})`}>
-        <Cell cell={cell} {...pass} />
-      </g>
-    ), market));
-    break;
-  default:
-    bottomMarket = map(row => map(cell => cell && cell.bottom ? cell : null, row), data.market || []);
-    market = map(row => map(cell => cell && cell.bottom ? null : cell, row), data.market || []);
-    // 2D
-    cells = addIndex(chain)((row, y) => {
-      return addIndex(map)((cell, x) => (
-        <g key={`cell-bottom-${x}-${y}`}
-           transform={`translate(${x * data.width} ${y * data.height + (data.stock.title === false ? 0 : 50)})`}>
-          <Cell cell={cell} {...pass} />
-        </g>
-      ), row);
-    }, bottomMarket);
-    cells = concat(cells, addIndex(chain)((row, y) => {
-      return addIndex(map)((cell, x) => (
-        <g key={`cell-top-${x}-${y}`}
-           transform={`translate(${x * data.width} ${y * data.height + (data.stock.title === false ? 0 : 50)})`}>
-          <Cell cell={cell} {...pass} />
-        </g>
-      ), row);
-    }, market));
-    break;
-  };
+    case "1D":
+      bottomMarket = map(
+        (cell) => (cell && cell.bottom ? cell : null),
+        data.market || []
+      );
+      market = map(
+        (cell) => (cell && cell.bottom ? null : cell),
+        data.market || []
+      );
+      cells = addIndex(map)(
+        (cell, i) => (
+          <g
+            key={`cell-bottom-${i}`}
+            transform={`translate(${i * data.width} ${
+              data.stock.title === false ? 0 : 50
+            })`}
+          >
+            <Cell cell={cell} {...pass} />
+          </g>
+        ),
+        bottomMarket
+      );
+      cells = concat(
+        cells,
+        addIndex(map)(
+          (cell, i) => (
+            <g
+              key={`cell-top-${i}`}
+              transform={`translate(${i * data.width} ${
+                data.stock.title === false ? 0 : 50
+              })`}
+            >
+              <Cell cell={cell} {...pass} />
+            </g>
+          ),
+          market
+        )
+      );
+      break;
+    case "1Diag":
+      bottomMarket = map(
+        (cell) => (cell && cell.bottom ? cell : null),
+        data.market || []
+      );
+      market = map(
+        (cell) => (cell && cell.bottom ? null : cell),
+        data.market || []
+      );
+      cells = addIndex(map)(
+        (cell, i) => (
+          <g
+            key={`cell-bottom-${i}`}
+            transform={`translate(${i * 0.5 * data.width} ${
+              i % 2 === 0
+                ? data.stock.title === false
+                  ? 0
+                  : 50
+                : (data.stock.title === false ? 0 : 50) + data.height
+            })`}
+          >
+            <Cell cell={cell} {...pass} />
+          </g>
+        ),
+        bottomMarket
+      );
+      cells = concat(
+        cells,
+        addIndex(map)(
+          (cell, i) => (
+            <g
+              key={`cell-top-${i}`}
+              transform={`translate(${i * 0.5 * data.width} ${
+                i % 2 === 0
+                  ? data.stock.title === false
+                    ? 0
+                    : 50
+                  : (data.stock.title === false ? 0 : 50) + data.height
+              })`}
+            >
+              <Cell cell={cell} {...pass} />
+            </g>
+          ),
+          market
+        )
+      );
+      break;
+    default:
+      bottomMarket = map(
+        (row) => map((cell) => (cell && cell.bottom ? cell : null), row),
+        data.market || []
+      );
+      market = map(
+        (row) => map((cell) => (cell && cell.bottom ? null : cell), row),
+        data.market || []
+      );
+      // 2D
+      cells = addIndex(chain)((row, y) => {
+        return addIndex(map)(
+          (cell, x) => (
+            <g
+              key={`cell-bottom-${x}-${y}`}
+              transform={`translate(${x * data.width} ${
+                y * data.height + (data.stock.title === false ? 0 : 50)
+              })`}
+            >
+              <Cell cell={cell} {...pass} />
+            </g>
+          ),
+          row
+        );
+      }, bottomMarket);
+      cells = concat(
+        cells,
+        addIndex(chain)((row, y) => {
+          return addIndex(map)(
+            (cell, x) => (
+              <g
+                key={`cell-top-${x}-${y}`}
+                transform={`translate(${x * data.width} ${
+                  y * data.height + (data.stock.title === false ? 0 : 50)
+                })`}
+              >
+                <Cell cell={cell} {...pass} />
+              </g>
+            ),
+            row
+          );
+        }, market)
+      );
+      break;
+  }
 
   let roundTracker = null;
   if (data.display.roundTracker) {
-    roundTracker = <MarketRoundTracker roundTracker={data.display.roundTracker}
-                                       game={game}
-                                       config={config} />;
+    roundTracker = (
+      <MarketRoundTracker
+        roundTracker={data.display.roundTracker}
+        game={game}
+        config={config}
+      />
+    );
   }
 
   let par = null;
@@ -94,7 +174,11 @@ const Market = ({data, game, config, title}) => {
     let x = data.display.par.x * data.config.stock.cell.width;
     let y = data.display.par.y * data.config.stock.cell.height;
     par = (
-      <g transform={`translate(${x} ${y + (data.stock.title === false ? 0 : 50)})`}>
+      <g
+        transform={`translate(${x} ${
+          y + (data.stock.title === false ? 0 : 50)
+        })`}
+      >
         <Par title="Par" data={getParData(data.stock, data.config)} />
       </g>
     );
@@ -103,9 +187,11 @@ const Market = ({data, game, config, title}) => {
   let legendNode = null;
 
   if (data.type === "2D") {
-    if (config.stock.display.legend &&
-        game.stock.display &&
-        game.stock.display.legend) {
+    if (
+      config.stock.display.legend &&
+      game.stock.display &&
+      game.stock.display.legend
+    ) {
       let legend = (game.stock && game.stock.legend) || [];
       if (game.stock.display.legend.reverse) {
         legend = reverse(legend);
@@ -115,19 +201,33 @@ const Market = ({data, game, config, title}) => {
 
       legendNode = (
         <Color context="companies">
-          {c => (
+          {(c) => (
             <g>
-              {addIndex(map)((legend, i) => (
-                <g
-                  key={`pool-note-${i}`}
-                  transform={`translate(${x} ${y + (data.stock.title === false ? 0 : 50) + (i * (game.stock.display.legend.verticalAlign === "bottom" ? -35 : 35))})`}
-                >
-                  <Legend right={game.stock.display.legend.align === "right"}
-                          bottom={game.stock.display.legend.verticalAlign === "bottom"}
-                          reverse={game.stock.display.legend.reverse}
-                          {...legend}/>
-                </g>
-              ), legend)}
+              {addIndex(map)(
+                (legend, i) => (
+                  <g
+                    key={`pool-note-${i}`}
+                    transform={`translate(${x} ${
+                      y +
+                      (data.stock.title === false ? 0 : 50) +
+                      i *
+                        (game.stock.display.legend.verticalAlign === "bottom"
+                          ? -35
+                          : 35)
+                    })`}
+                  >
+                    <Legend
+                      right={game.stock.display.legend.align === "right"}
+                      bottom={
+                        game.stock.display.legend.verticalAlign === "bottom"
+                      }
+                      reverse={game.stock.display.legend.reverse}
+                      {...legend}
+                    />
+                  </g>
+                ),
+                legend
+              )}
             </g>
           )}
         </Color>
@@ -146,30 +246,21 @@ const Market = ({data, game, config, title}) => {
             return (
               <g
                 key={`pool-note-${i}`}
-                transform={`translate(${current} ${1 * data.height + (data.stock.title === false ? 25 : 75)})`}
+                transform={`translate(${current} ${
+                  1 * data.height + (data.stock.title === false ? 25 : 75)
+                })`}
               >
-                <Legend {...legend}/>
+                <Legend {...legend} />
               </g>
             );
           }, legend)}
         </g>
       );
     }
-
   } else if (data.type === "1Diag") {
-    if (config.stock.display.legend) {
+    if (!config.stock.display.legend) {
       let legend = (game.stock && game.stock.legend) || [];
       let left = 0;
-      let y = 2 * data.height + (data.stock.title === false ? 25 : 75);
-
-      if (game.stock.display && game.stock.display.legend) {
-        if (game.stock.display.legend.x) {
-          left = game.stock.display.legend.x;
-        }
-        if (game.stock.display.legend.y) {
-          y = game.stock.display.legend.y;
-        }
-      }
 
       legendNode = (
         <g>
@@ -179,9 +270,11 @@ const Market = ({data, game, config, title}) => {
             return (
               <g
                 key={`pool-note-${i}`}
-                transform={`translate(${current} ${y})`}
+                transform={`translate(${current} ${
+                  2 * data.height + (data.stock.title === false ? 25 : 75)
+                })`}
               >
-                <Legend {...legend}/>
+                <Legend {...legend} />
               </g>
             );
           }, legend)}

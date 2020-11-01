@@ -49,7 +49,7 @@ export const getMarketData = (stock, config) => {
 
   // Now with width and height set we can figure out total height and total
   // width
-  let totalWidth = width * columns + 10;
+  let totalWidth = width * columns;
   let totalHeight = height * rows + (stock.title === false ? 0 : 50);
 
   // Are we displaying par, if so does this add to the height or width?
@@ -77,14 +77,6 @@ export const getMarketData = (stock, config) => {
       totalHeight += 50;
     }
   }
-  totalHeight +=
-    stock.display && stock.display.extraTotalHeight
-      ? stock.display.extraTotalHeight
-      : 0;
-  totalWidth +=
-    stock.display && stock.display.extraTotalWidth
-      ? stock.display.extraTotalHeight
-      : 0;
 
   return {
     type: stock.type || "2D",

@@ -122,9 +122,7 @@ const Track = ({ type, gauge, border, width, offset, path, color,
                  borderColor, gaugeColor }) => {
   const rotation = useOrientation();
 
-  let trackWidth = defaultTo(12, width);
-  if (border)
-    trackWidth += 4;
+  let trackWidth = width ? width : (border ? 16 : 12);
   color = color || "track";
   borderColor = borderColor || "border";
   gaugeColor = gaugeColor || "white";
@@ -249,8 +247,8 @@ const Track = ({ type, gauge, border, width, offset, path, color,
         {c => (
           <path
             d={path}
-            fill={type === "offboard" ? c(gaugeColor) : "none"}
-            stroke={type === "offboard" ? "none" : c(gaugeColor)}
+            fill="none"
+            stroke={c(gaugeColor)}
             strokeLinecap="butt"
             strokeLinejoin="miter"
             strokeWidth={trackWidth - 4}

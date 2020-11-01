@@ -6,7 +6,6 @@ import Ellipse from "./Ellipse";
 import Hexagon from "./Hexagon";
 import Square from "./Square";
 import Triangle from "./Triangle";
-import Star from "./Star";
 
 const mapping = {
   circle: Circle,
@@ -14,8 +13,7 @@ const mapping = {
   ellipse: Ellipse,
   hexagon: Hexagon,
   square: Square,
-  triangle: Triangle,
-  star: Star
+  triangle: Triangle
 }
 
 const Shape = (props) => {
