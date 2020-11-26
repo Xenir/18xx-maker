@@ -290,12 +290,10 @@
             "size": 2,
             "companies": [
               {
-                "label": "NWE",
-                "color": "green"
+                "label": "NWE"
               },
               {
-                "label": "WBE",
-                "color": "black"
+                "label": "WBE"
               }
             ],
             "name": {
@@ -418,8 +416,7 @@
             "label": "HBE",
             "width": 15,
             "color": "red",
-            "angle": 60,
-            "percent": 0.75
+            "percent": 0.7
           }
         ],
         "hexes": ["A17"]
@@ -442,8 +439,7 @@
           {
             "companies": [
               {
-                "label": "HBE",
-                "color": "red"
+                "label": "HBE"
               }
             ],
             "name": {
@@ -457,6 +453,32 @@
             "value": 60,
             "angle": 240,
             "percent": 0.8
+          }
+        ],
+        "borders": [
+          {
+            "side": 1,
+            "color": "offboard"
+          },
+          {
+            "side": 2,
+            "color": "offboard"
+          },
+          {
+            "side": 3,
+            "color": "offboard"
+          },
+          {
+            "side": 4,
+            "color": "offboard"
+          },
+          {
+            "side": 5,
+            "color": "offboard"
+          },
+          {
+            "side": 6,
+            "color": "offboard"
           }
         ],
         "labels": [
@@ -526,10 +548,13 @@
             "percent": 0.667
           }
         ],
-        "centerTowns": [
+        "towns": [
           {
+            "rotation": 30,
             "name": {
-              "name": "Knaupsholz"
+              "name": "Knaupsholz",
+              "y": -20,
+              "rotation": 270
             }
           }
         ],
@@ -554,8 +579,7 @@
           {
             "company": "NWE",
             "destination": true,
-            "angle": 240,
-            "percent": 0.75
+            "percent": 0.7
           }
         ],
         "hexes": ["B8"],
@@ -620,6 +644,7 @@
             "percent": 0.28,
             "name": {
               "name": "Heimburg",
+              "doRotation": true,
               "rotation": 30
             }
           }
@@ -706,7 +731,7 @@
         "hexes": ["C5"],
         "terrain": [
           {
-            "cost": 150,
+            "cost": 50,
             "angle": 300,
             "percent": 0.5,
             "type": "mountain"
@@ -719,6 +744,7 @@
           {
             "name": {
               "name": "Drei Annen Hohne",
+              "doRotation": true,
               "rotation": -60
             }
           }
@@ -734,8 +760,7 @@
           {
             "company": "NWE",
             "destination": true,
-            "angle": 240,
-            "percent": 0.75
+            "percent": 0.7
           }
         ],
         "hexes": ["C7"],
@@ -752,8 +777,8 @@
         "color": "yellow",
         "industries": [
           {
-            "angle": 180,
-            "percent": 0.667,
+            "angle": 120,
+            "percent": 0.77,
             "top": "10",
             "bottom": "30"
           }
@@ -761,9 +786,7 @@
         "cities": [
           {
             "name": {
-              "name": "Elbingerode",
-              "reverse": true,
-              "offset": 33.33
+              "name": "Elbingerode"
             }
           }
         ],
@@ -922,11 +945,9 @@
             "size": 2,
             "companies": [
               {
-                "color": "black",
                 "label": "WBE"
               },
               {
-                "color": "red",
                 "label": "HBE"
               }
             ],
@@ -1040,8 +1061,7 @@
             },
             "companies": [
               {
-                "label": "SHE",
-                "color": "yellow"
+                "label": "SHE"
               }
             ]
           }
@@ -1069,6 +1089,7 @@
           {
             "name": {
               "name": "Elend",
+              "doRotation": true,
               "rotation": -60
             }
           }
@@ -1084,8 +1105,7 @@
           {
             "company": "NWE",
             "destination": true,
-            "angle": 240,
-            "percent": 0.75
+            "percent": 0.7
           }
         ],
         "hexes": ["D6"],
@@ -1287,8 +1307,7 @@
           {
             "companies": [
               {
-                "label": "QLB",
-                "color": "orange"
+                "label": "QLB"
               }
             ],
             "name": {
@@ -1318,6 +1337,7 @@
           {
             "name": {
               "name": "Brunnenbachsmühle",
+              "doRotation": true,
               "rotation": -60
             }
           }
@@ -1333,8 +1353,7 @@
           {
             "company": "SHE",
             "destination": true,
-            "angle": 240,
-            "percent": 0.75
+            "percent": 0.7
           }
         ],
         "hexes": ["E3"],
@@ -1479,16 +1498,14 @@
           {
             "top": "SM",
             "bottom": "+50",
-            "angle": 180,
-            "percent": 0.7
+            "angle": 120,
+            "percent": 0.77
           }
         ],
         "cities": [
           {
             "name": {
-              "name": "Hasselfeld",
-              "reverse": true,
-              "offset": 33.33
+              "name": "Hasselfelde"
             }
           }
         ],
@@ -1656,6 +1673,7 @@
           {
             "name": {
               "name": "Wieda",
+              "doRotation": true,
               "rotation": -60
             }
           }
@@ -1681,8 +1699,7 @@
           {
             "company": "SHE",
             "destination": true,
-            "angle": 240,
-            "percent": 0.75
+            "percent": 0.7
           }
         ],
         "hexes": ["F2"],
@@ -1712,8 +1729,7 @@
             },
             "companies": [
               {
-                "label": "KEZ",
-                "color": "brown"
+                "label": "KEZ"
               }
             ]
           }
@@ -1791,8 +1807,7 @@
           {
             "companies": [
               {
-                "label": "NWE",
-                "color": "green"
+                "label": "NWE"
               }
             ],
             "name": {
@@ -1971,8 +1986,7 @@
           {
             "companies": [
               {
-                "label": "GHE",
-                "color": "blue"
+                "label": "GHE"
               }
             ],
             "name": {
@@ -2307,8 +2321,7 @@
             },
             "companies": [
               {
-                "label": "SHE",
-                "color": "yellow"
+                "label": "SHE"
               }
             ]
           }
@@ -2386,8 +2399,7 @@
             },
             "companies": [
               {
-                "label": "KEZ",
-                "color": "brown"
+                "label": "KEZ"
               }
             ]
           }
@@ -2434,6 +2446,7 @@
           {
             "name": {
               "name": "Netzkater",
+              "doRotation": true,
               "rotation": -60
             }
           }
@@ -2449,8 +2462,7 @@
           {
             "company": "NWE",
             "destination": true,
-            "angle": 240,
-            "percent": 0.75
+            "percent": 0.7
           }
         ],
         "hexes": ["H8"],
@@ -2539,8 +2551,8 @@
           {
             "top": "13",
             "bottom": "30",
-            "angle": 60,
-            "percent": 0.7
+            "angle": 240,
+            "percent": 0.667
           }
         ],
         "track": [
@@ -2575,12 +2587,11 @@
             "name": {
               "name": "Harzgerode",
               "reverse": true,
-              "offset": 66.67
+              "offset": 50
             },
             "companies": [
               {
-                "label": "GHE",
-                "color": "blue"
+                "label": "GHE"
               }
             ]
           }
@@ -2666,8 +2677,7 @@
             },
             "companies": [
               {
-                "label": "NWE",
-                "color": "green"
+                "label": "NWE"
               }
             ]
           }
