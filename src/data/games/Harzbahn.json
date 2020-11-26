@@ -415,7 +415,6 @@
           {
             "label": "HBE",
             "width": 15,
-            "color": "red",
             "percent": 0.7
           }
         ],
@@ -777,7 +776,7 @@
         "color": "yellow",
         "industries": [
           {
-            "angle": 120,
+            "angle": 180,
             "percent": 0.77,
             "top": "10",
             "bottom": "30"
@@ -1051,7 +1050,7 @@
           {
             "value": 30,
             "angle": 60,
-            "percent": 0.7
+            "percent": 0.75
           }
         ],
         "cities": [
@@ -1131,7 +1130,7 @@
         "centerTowns": [
           {
             "name": {
-              "name": "Kõnigshütte",
+              "name": "Königshütte",
               "reverse": true
             },
             "angle": 150,
@@ -1378,15 +1377,18 @@
         "cities": [
           {
             "angle": 90,
-            "percent": 0.5,
-            "name": {
-              "name": "Sorge",
-              "reverse": true
-            }
+            "percent": 0.5
           },
           {
             "angle": 210,
             "percent": 0.6
+          }
+        ],
+        "names": [
+          {
+            "name": "Sorge",
+            "angle": 10,
+            "percent": 0.4
           }
         ],
         "track": [
@@ -1419,15 +1421,14 @@
           {
             "value": 20,
             "angle": 330,
-            "percent": 0.1
+            "percent": 0.3
           }
         ],
         "industries": [
           {
             "top": "11",
             "bottom": "20",
-            "angle": 330,
-            "percent": 0.667
+            "percent": 0.77
           }
         ],
         "cities": [
@@ -1437,12 +1438,14 @@
           },
           {
             "angle": 210,
-            "percent": 0.6,
-            "name": {
-              "name": "Tanne",
-              "reverse": true,
-              "offset": 60
-            }
+            "percent": 0.6
+          }
+        ],
+        "names": [
+          {
+            "name": "Tanne",
+            "angle": 270,
+            "percent": 0.1
           }
         ],
         "track": [
@@ -1498,7 +1501,7 @@
           {
             "top": "SM",
             "bottom": "+50",
-            "angle": 120,
+            "angle": 180,
             "percent": 0.77
           }
         ],
@@ -1809,11 +1812,19 @@
               {
                 "label": "NWE"
               }
-            ],
-            "name": {
-              "name": "Benneckenstein",
-              "offset": 66.67
-            }
+            ]
+          }
+        ],
+        "names": [
+          {
+            "name": "Bennecken-",
+            "angle": 230,
+            "percent": 0.6
+          },
+          {
+            "name": "stein",
+            "angle": 250,
+            "percent": 0.7
           }
         ],
         "borders": [
