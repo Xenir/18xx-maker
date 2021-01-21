@@ -833,7 +833,6 @@
           {
             "cost": 50,
             "angle": 60,
-            "size": "tiny",
             "percent": 0.775,
             "type": "mountain"
           }
@@ -1075,7 +1074,6 @@
         "terrain": [
           {
             "cost": 50,
-            "size": "tiny",
             "angle": 180,
             "percent": 0.75,
             "type": "mountain"
@@ -1408,8 +1406,7 @@
         "hexes": ["E5"],
         "terrain": [
           {
-            "percent": 0.7,
-            "size": "tiny",
+            "percent": 0.75,
             "cost": 50,
             "type": "mountain"
           }
@@ -1467,7 +1464,6 @@
           {
             "angle": 150,
             "percent": 0.7,
-            "size": "tiny",
             "cost": 50,
             "type": "mountain"
           }
@@ -1557,7 +1553,6 @@
             "angle": 60,
             "percent": 0.775,
             "cost": 50,
-            "size": "tiny",
             "type": "mountain"
           }
         ]
@@ -1780,7 +1775,6 @@
         "terrain": [
           {
             "cost": 50,
-            "size": "tiny",
             "angle": 300,
             "percent": 0.7,
             "type": "mountain"
@@ -2203,7 +2197,6 @@
         "terrain": [
           {
             "cost": 50,
-            "size": "tiny",
             "angle": 240,
             "percent": 0.7,
             "type": "mountain"
@@ -2255,7 +2248,6 @@
         "terrain": [
           {
             "cost": 100,
-            "size": "tiny",
             "angle": 240,
             "percent": 0.775,
             "type": "mountain"
