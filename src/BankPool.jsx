@@ -64,7 +64,7 @@ const BankPool = () => {
                               stroke="black"
                               fill="white" />
                         <text
-                          fontFamily="mir"
+                          fontFamily="display"
                           fontSize="25"
                           dominantBaseline="hanging"
                           x="0"
@@ -82,7 +82,7 @@ const BankPool = () => {
                                      x={15}
                                      y={poolHeight - ((j + 1) * 45)} />
                             <text
-                              fontFamily="txt"
+                              fontFamily="display"
                               fontSize="14"
                               fontWeight="normal"
                               textAnchor="start"

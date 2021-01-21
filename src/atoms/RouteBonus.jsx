@@ -12,7 +12,7 @@ const RouteBonus = ({
   textColor,
 }) => {
   const { game } = useContext(GameContext);
-  let fontFamily = defaultTo("sans-serif", game.info.valueFontFamily);
+  let fontFamily = defaultTo("display", game.info.valueFontFamily);
   size = size || 14;
   let width = ((size * 5.0) / 14.0) * value.length;
   let height = size + 6;
@@ -37,7 +37,7 @@ const RouteBonus = ({
           />
           <text
             fontSize={size}
-            fontFamily="txt"
+            fontFamily="display"
             fill={c(textColor)}
             dominantBaseline="central"
             textAnchor="middle"

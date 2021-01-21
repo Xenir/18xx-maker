@@ -76,7 +76,7 @@ const atoms = [
         names: [
           {
             name: "Los Angeles",
-            fontFamily: "txt",
+            fontFamily: "display",
             fontSize: 20,
             color: "yellow",
             strokeWidth: 1,
@@ -87,7 +87,7 @@ const atoms = [
         names: [
           {
             name: "Paris",
-            fontFamily: "Elegante",
+            fontFamily: "display",
             fontSize: 16,
             fontWeight: "normal",
             fontStyle: "italic",

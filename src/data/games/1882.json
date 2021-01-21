@@ -65,7 +65,7 @@
     "designer": "Marc Voyer",
     "orientation": "horizontal",
     "extraTotalWidth": 0,
-    "titleFontFamily": "mir",
+    "titleFontFamily": "display",
     "subtitle": "",
     "title": "1882",
     "titleX": 860,
@@ -820,7 +820,7 @@
             "y": -8,
             "name": "does not count as a stop",
             "fontStyle": "Italic",
-            "fontFamily": "txt"
+            "fontFamily": "display"
           }
         ],
         "offBoardRevenue": {

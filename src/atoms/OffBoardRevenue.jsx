@@ -55,14 +55,13 @@ const makeNode = (x, y, reverse, revenue, size, fontFamily) => {
         <text
           fill={c(revenue.textColor) || t(c(revenue.color))}
           fontSize={size}
-          fontFamily="txt"
+          fontFamily="display"
           dominantBaseline="central"
           textAnchor="middle"
           textLength={length}
           lengthAdjust="spacingAndGlyphs"
           x={x + 0.5 * width}
-          y={y - 10 + size / 2 + 3}
-          // y={y - 10 + (size / 2) + 2}
+          y={y - 10 + size / 2 + 2}
         >
           <Currency value={value} type="offboard" />
         </text>
@@ -79,7 +78,7 @@ const makeNode = (x, y, reverse, revenue, size, fontFamily) => {
             strokeWidth="0.5"
             stroke={c("black")}
             fontSize={size}
-            fontFamily="txt"
+            fontFamily="display"
             dominantBaseline="central"
             textAnchor="middle"
             textLength={phaseLength}
@@ -154,7 +153,7 @@ const OffBoardRevenue = ({ name, revenues, reverse, rows, size }) => {
   let split = splitRevenues(rows, revenues);
 
   let fontSize = defaultTo(DEFAULT_FONTSIZE, size);
-  let fontFamily = defaultTo("txt", game.info.valueFontFamily);
+  let fontFamily = defaultTo("display", game.info.valueFontFamily);
 
   let nodes = R.addIndex(R.chain)((revenues, row) => {
     let y = row * height(fontSize) * (reverse ? -1 : 1);

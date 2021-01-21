@@ -35,7 +35,7 @@ const Id = ({ id, extra }) => {
         <React.Fragment>
           <g transform={`rotate(${rotation}) translate(${idX} 70)`}>
             <text
-              fontFamily="txt"
+              fontFamily="display"
               fill={p("black")}
               stroke="none"
               strokeLinecap="round"
@@ -53,7 +53,7 @@ const Id = ({ id, extra }) => {
           {extra && (
             <g transform={`rotate(${rotation}) translate(${extraX} 70)`}>
               <text
-                fontFamily="txt"
+                fontFamily="display"
                 fill={c("black")}
                 stroke="none"
                 strokeLinecap="round"

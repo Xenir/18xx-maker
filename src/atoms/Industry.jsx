@@ -22,23 +22,23 @@ const Industry = ({ top, bottom }) => {
           />
           <text
             fontSize={12}
-            fontFamily="txt"
+            fontFamily="display"
             fill={c("pink")}
             dominantBaseline="central"
             textAnchor="middle"
             x="0"
-            y="-8"
+            y="-9"
           >
             {top}
           </text>
           <text
             fontSize={12}
-            fontFamily="txt"
+            fontFamily="display"
             fill={c("pink")}
             dominantBaseline="central"
             textAnchor="middle"
             x="0"
-            y="8"
+            y="7"
           >
             {bottom}
           </text>

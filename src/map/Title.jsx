@@ -8,18 +8,18 @@ const Title = ({ game, variation, hexWidth }) => {
 
   let scale = hexWidth / 150.0;
 
-  let titleFont = game.info.titleFontFamily || "mir";
+  let titleFont = game.info.titleFontFamily || "display";
   let titleWeight = game.info.titleFontWeight || "bold";
   let titleSize = (game.info.titleSize || 200) * scale;
 
   let subtitleFont =
-    game.info.subtitleFontFamily || game.info.titleFontFamily || "mir";
+    game.info.subtitleFontFamily || game.info.titleFontFamily || "display";
   let subtitleWeight =
     game.info.subtitleFontWeight || game.info.titleFontWeight || "bold";
   let subtitleSize = (game.info.subtitleSize || 30) * scale;
 
   let designerFont =
-    game.info.designerFontFamily || game.info.titleFontFamily || "mir";
+    game.info.designerFontFamily || game.info.titleFontFamily || "display";
   let designerWeight =
     game.info.designerFontWeight || game.info.titleFontWeight || "bold";
   let designerSize = (game.info.designerSize || 20) * scale;

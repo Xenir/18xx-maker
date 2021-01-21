@@ -8,7 +8,7 @@ import icons from "../data/icons";
 const Terrain = ({ type, size, cost, fontSize, color }) => {
   const { game } = useContext(GameContext);
   fontSize = defaultTo(15, fontSize);
-  let fontFamily = defaultTo("txt", game.info.valueFontFamily);
+  let fontFamily = defaultTo("display", game.info.valueFontFamily);
 
   let translate = 0;
   let scale = 1;

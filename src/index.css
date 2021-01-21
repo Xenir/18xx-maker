@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   -webkit-print-color-adjust: exact;
-  font-family: txt;
+  font-family: display;
   font-weight: bold;
 }
 
@@ -116,7 +116,7 @@ svg {
 .charter {
   box-sizing: border-box;
   page-break-inside: avoid;
-  font-family: txt;
+  font-family: display;
   position: relative;
   background-color: white;
   float: left;
@@ -273,7 +273,7 @@ svg {
 }
 
 .charter__game {
-  font-family: txt;
+  font-family: display;
   font-weight: normal;
   font-size: 0.12in;
   text-align: left;
@@ -325,7 +325,7 @@ svg {
 }
 
 .charter__phase table {
-  font-family: txt;
+  font-family: display;
   font-weight: normal;
   font-size: 0.09in;
   border-collapse: collapse;
@@ -334,7 +334,7 @@ svg {
 
 .charter__phase th {
   padding: 0 0.05in;
-  font-family: txt;
+  font-family: display;
   text-align: center;
 }
 
@@ -387,7 +387,7 @@ svg {
 .charter dd {
   margin: 0;
   font-size: 0.12in;
-  font-family: txt;
+  font-family: display;
   font-weight: normal;
 }
 
@@ -576,7 +576,7 @@ ul.notes li span {
 }
 
 .cutlines__page {
-  font-family: "txt";
+  font-family: display;
   font-size: 0.15in;
   position: absolute;
   width: 100%;
@@ -648,7 +648,7 @@ footer {
   width: 800px;
   margin: 0 auto;
   font-weight: normal;
-  font-family: txt;
+  font-family: display;
   font-size: 0.8em;
 }
 
@@ -666,7 +666,7 @@ footer a:hover {
   background-color: #a00;
   border-bottom: 2px solid #900;
   color: #fff;
-  font-family: txt;
+  font-family: display;
 }
 
 .LegalNotes strong {
@@ -676,14 +676,14 @@ footer a:hover {
 .WIP {
   background-color: #ffa;
   border-bottom: 2px solid #dda;
-  font-family: txt;
+  font-family: display;
   font-weight: normal;
 }
 
 .PrintNotes {
   background-color: #ddd;
   border-bottom: 2px solid #bbb;
-  font-family: txt;
+  font-family: display;
   font-weight: normal;
 }
 

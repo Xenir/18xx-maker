@@ -22,7 +22,7 @@ const Label = (props) => {
     <RotateContext.Consumer>
       {(rotation) => (
         <g transform={fixed ? null : `rotate(-${rotation})`}>
-          <Text fontSize={fontSize} fontFamily="mir" {...props} text={label} />
+          <Text fontSize={fontSize} fontFamily="display" {...props} text={label} />
         </g>
       )}
     </RotateContext.Consumer>

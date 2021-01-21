@@ -84,14 +84,14 @@ const Value = ({ value, shape, fixed, outerBorderColor }) => {
                   transform={fixed ? null : `rotate(-${rotation})`}
                   fontWeight="bold"
                   fontSize={size}
-                  fontFamily={defaultTo("txt", game.info.valueFontFamily)}
+                  fontFamily={defaultTo("display", game.info.valueFontFamily)}
                   fill={p("black")}
                   dominantBaseline="central"
                   textAnchor="middle"
                   textLength={length > 2 ? rx + 6 : null}
                   lengthAdjust="spacingAndGlyphs"
                   x="0"
-                  y="0"
+                  y="-1"
                 >
                   <Currency value={value} type="value" />
                 </text>

@@ -38,7 +38,7 @@ const Revenue = ({ data, game, config }) => {
   return (
     <g>
       <text
-        fontFamily="txt"
+        fontFamily="display"
         fontStyle="bold"
         fontSize="25"
         dominantBaseline="hanging"

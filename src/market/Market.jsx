@@ -286,7 +286,7 @@ const Market = ({ data, game, config, title }) => {
   return (
     <g>
       <text
-        fontFamily="mir"
+        fontFamily="display"
         fontStyle="bold"
         fontSize="25"
         dominantBaseline="hanging"

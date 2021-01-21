@@ -594,7 +594,7 @@ const Token = ({
             content.push(
               <text
                 key="text"
-                fontFamily={fontFamily || "txt"}
+                fontFamily={fontFamily || "display"}
                 fontSize={fSize}
                 textAnchor="middle"
                 strokeWidth={labelStrokeWidth}
@@ -654,7 +654,7 @@ const Token = ({
           content.push(
             <text
               key="text"
-              fontFamily={fontFamily || "txt"}
+              fontFamily={fontFamily || "display"}
               fontSize={fSize}
               textAnchor="middle"
               strokeWidth={labelStrokeWidth}

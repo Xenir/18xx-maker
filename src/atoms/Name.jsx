@@ -23,7 +23,7 @@ const Name = (props) => {
     textLength,
   } = props;
 
-  let font = getFontProps(props, 11, "bold", "txt");
+  let font = getFontProps(props, 11, "bold", "display");
 
   let nameNode;
 

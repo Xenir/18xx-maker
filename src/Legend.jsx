@@ -22,7 +22,7 @@ const Legend = ({
             fill={c(color || "orange")}
           />
           <text
-            fontFamily="txt"
+            fontFamily="display"
             fontSize="14"
             fontWeight="normal"
             textAnchor={right ? "end" : "start"}

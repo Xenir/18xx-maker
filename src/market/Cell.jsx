@@ -86,7 +86,7 @@ const Cell = ({ cell, par, game, config, data }) => {
                     fill={arrowColor}
                     stroke={c("black")}
                     strokeWidth={0.5}
-                    fontFamily="txt"
+                    fontFamily="display"
                     fontStyle="bold"
                     fontSize="15"
                     textAnchor={left ? "start" : "end"}
@@ -191,7 +191,7 @@ const Cell = ({ cell, par, game, config, data }) => {
                   <text
                     transform={rotated ? "rotate(-90)" : null}
                     fill={labelColor}
-                    fontFamily="txt"
+                    fontFamily="display"
                     fontStyle="bold"
                     fontSize="15"
                     textAnchor="middle"
@@ -207,7 +207,7 @@ const Cell = ({ cell, par, game, config, data }) => {
                   <text
                     transform={subRotated ? "rotate(-90)" : null}
                     fill={labelColor}
-                    fontFamily="txt"
+                    fontFamily="display"
                     fontStyle="bold"
                     fontSize="15"
                     textAnchor="start"
