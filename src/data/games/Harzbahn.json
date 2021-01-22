@@ -592,12 +592,34 @@
         ]
       },
       {
-        "color": "brown",
+        "color": "plain",
         "track": [
           {
             "type": "gentle",
             "side": 2,
             "gauge": "line"
+          }
+        ],
+        "borders": [
+          {
+            "side": 1,
+            "color": "yellow",
+            "strokeWidth": 25
+          },
+          {
+            "side": 2,
+            "color": "yellow",
+            "strokeWidth": 25
+          },
+          {
+            "side": 3,
+            "color": "yellow",
+            "strokeWidth": 25
+          },
+          {
+            "side": 6,
+            "color": "yellow",
+            "strokeWidth": 25
           }
         ],
         "tokens": [
@@ -611,7 +633,7 @@
         "hexes": ["B10"]
       },
       {
-        "color": "brown",
+        "color": "plain",
         "centerTowns": [
           {
             "name": {
@@ -625,6 +647,18 @@
             "gauge": "line"
           }
         ],
+        "borders": [
+          {
+            "side": 2,
+            "color": "yellow",
+            "strokeWidth": 25
+          },
+          {
+            "side": 3,
+            "color": "yellow",
+            "strokeWidth": 25
+          }
+        ],
         "tokens": [
           {
             "company": "WBE",
@@ -636,7 +670,7 @@
         "hexes": ["B12"]
       },
       {
-        "color": "brown",
+        "color": "plain",
         "centerTowns": [
           {
             "angle": 30,
@@ -653,6 +687,28 @@
             "side": 5,
             "type": "gentle",
             "gauge": "line"
+          }
+        ],
+        "borders": [
+          {
+            "side": 2,
+            "color": "yellow",
+            "strokeWidth": 25
+          },
+          {
+            "side": 3,
+            "color": "yellow",
+            "strokeWidth": 25
+          },
+          {
+            "side": 4,
+            "color": "yellow",
+            "strokeWidth": 25
+          },
+          {
+            "side": 5,
+            "color": "yellow",
+            "strokeWidth": 25
           }
         ],
         "tokens": [
