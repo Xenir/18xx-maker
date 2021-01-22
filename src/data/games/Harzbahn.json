@@ -415,7 +415,9 @@
           {
             "label": "HBE",
             "width": 15,
-            "percent": 0.7
+            "percent": 0.7,
+            "color": "orange",
+            "labelColor": "black"
           }
         ],
         "hexes": ["A17"]
@@ -576,9 +578,11 @@
         ],
         "tokens": [
           {
-            "company": "NWE",
-            "destination": true,
-            "percent": 0.7
+            "label": "NWE",
+            "width": 15,
+            "percent": 0.7,
+            "color": "green",
+            "labelColor": "white"
           }
         ],
         "hexes": ["B8"],
@@ -624,10 +628,12 @@
         ],
         "tokens": [
           {
-            "company": "WBE",
-            "destination": true,
+            "label": "WBE",
+            "width": 15,
             "angle": 300,
-            "percent": 0.7
+            "percent": 0.7,
+            "color": "brown",
+            "labelColor": "white"
           }
         ],
         "hexes": ["B10"]
@@ -661,10 +667,12 @@
         ],
         "tokens": [
           {
-            "company": "WBE",
-            "destination": true,
+            "label": "WBE",
+            "width": 15,
             "angle": 300,
-            "percent": 0.7
+            "percent": 0.7,
+            "color": "brown",
+            "labelColor": "white"
           }
         ],
         "hexes": ["B12"]
@@ -713,10 +721,12 @@
         ],
         "tokens": [
           {
-            "company": "WBE",
-            "destination": true,
+            "label": "WBE",
+            "width": 15,
             "angle": 300,
-            "percent": 0.7
+            "percent": 0.7,
+            "color": "brown",
+            "labelColor": "white"
           }
         ],
         "hexes": ["B14"]
@@ -813,9 +823,11 @@
         ],
         "tokens": [
           {
-            "company": "NWE",
-            "destination": true,
-            "percent": 0.7
+            "label": "NWE",
+            "width": 15,
+            "percent": 0.7,
+            "color": "green",
+            "labelColor": "white"
           }
         ],
         "hexes": ["C7"],
@@ -1156,9 +1168,11 @@
         ],
         "tokens": [
           {
-            "company": "NWE",
-            "destination": true,
-            "percent": 0.7
+            "label": "NWE",
+            "width": 15,
+            "percent": 0.7,
+            "color": "green",
+            "labelColor": "white"
           }
         ],
         "hexes": ["D6"],
@@ -1404,9 +1418,11 @@
         ],
         "tokens": [
           {
-            "company": "SHE",
-            "destination": true,
-            "percent": 0.7
+            "label": "SHE",
+            "width": 15,
+            "percent": 0.7,
+            "color": "yellow",
+            "labelColor": "black"
           }
         ],
         "hexes": ["E3"],
@@ -1751,9 +1767,11 @@
         ],
         "tokens": [
           {
-            "company": "SHE",
-            "destination": true,
-            "percent": 0.7
+            "label": "SHE",
+            "width": 15,
+            "percent": 0.7,
+            "color": "yellow",
+            "labelColor": "black"
           }
         ],
         "hexes": ["F2"],
@@ -2092,9 +2110,11 @@
         ],
         "tokens": [
           {
-            "company": "KEZ",
-            "destination": true,
-            "percent": 0.7
+            "label": "KEZ",
+            "width": 15,
+            "percent": 0.7,
+            "color": "black",
+            "labelColor": "white"
           }
         ],
         "hexes": ["G3"],
@@ -2128,10 +2148,12 @@
         ],
         "tokens": [
           {
-            "company": "NWE",
-            "destination": true,
+            "label": "NWE",
+            "width": 15,
+            "percent": 0.75,
             "angle": 240,
-            "percent": 0.75
+            "color": "green",
+            "labelColor": "white"
           }
         ],
         "hexes": ["G7"],
@@ -2321,10 +2343,12 @@
         ],
         "tokens": [
           {
-            "company": "GHE",
-            "destination": true,
+            "label": "GHE",
+            "width": 15,
+            "percent": 0.75,
             "angle": 240,
-            "percent": 0.75
+            "color": "light_blue",
+            "labelColor": "black"
           }
         ],
         "hexes": ["G19"],
@@ -2519,9 +2543,11 @@
         ],
         "tokens": [
           {
-            "company": "NWE",
-            "destination": true,
-            "percent": 0.7
+            "label": "NWE",
+            "width": 15,
+            "percent": 0.7,
+            "color": "green",
+            "labelColor": "white"
           }
         ],
         "hexes": ["H8"],
