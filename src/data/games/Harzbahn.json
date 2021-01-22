@@ -170,6 +170,10 @@
       "color": "yellow"
     },
     {
+      "name": "AR",
+      "color": "gray"
+    },
+    {
       "name": "SR",
       "color": "gray"
     }
