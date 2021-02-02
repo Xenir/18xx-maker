@@ -7,7 +7,7 @@
     "margins": 23.622047244
   },
   "maps": {
-    "roundTracker": false
+    "roundTracker": true
   },
   "plainMapCompanies": true,
   "theme": "galatolol",
