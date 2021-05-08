@@ -3,7 +3,7 @@
   "font": {
     "family": "display",
     "size": "0.15in",
-    "weight": "bold"
+    "weight": "normal"
   },
   "cutlines": 25,
   "cutlinesOffset": 0,
@@ -49,11 +49,15 @@
   },
   "charters": {
     "style": "color",
+    "layout": "free",
     "cutlines": 25,
     "bleed": 12.5,
     "halfWidth": false,
+    "smallerMinors": true,
     "border": 0,
-    "blackBand": false
+    "blackBand": false,
+    "showPhaseChart": true,
+    "showTurnOrder": true
   },
   "cards": {
     "shareStyle": "gmt",
@@ -79,6 +83,7 @@
   },
   "tiles": {
     "id": "right",
+    "colorblind": false,
     "layout": "die",
     "width": 150,
     "mapWidth": 150,

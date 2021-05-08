@@ -1,6 +1,6 @@
 {
   "name": "18xx-maker",
-  "version": "1.0.0-beta.17",
+  "version": "1.0.0-beta.28",
   "author": "Christopher Giroir <kelsin@valefor.com>",
   "description": "18xx Prototyper",
   "repository": {
@@ -99,11 +99,10 @@
     "chokidar": "^3.4.0",
     "electron-is-dev": "^1.2.0",
     "electron-updater": "^4.3.1",
-    "npx": "^10.2.2",
     "onchange": "^7.0.2"
   },
   "devDependencies": {
-    "@18xx-maker/schemas": "^5.2.0",
+    "@18xx-maker/schemas": "^5.7.0",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",

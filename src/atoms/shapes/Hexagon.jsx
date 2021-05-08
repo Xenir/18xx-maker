@@ -4,12 +4,12 @@ import GameContext from "../../context/GameContext";
 import Text from "./Text";
 import Color from "../../util/Color";
 
-import { getFontProps  } from "../../util";
+import { getFontProps, multiDefaultTo } from "../../util";
 
 import defaultTo from "ramda/src/defaultTo";
 
 const Hexagon = (props) => {
-  let { text, textColor, color, opacity, borderColor, borderWidth, width, dashed } = props;
+  let { text, textColor, fontFamily, color, opacity, borderColor, borderWidth, width, dashed } = props;
   const { game } = useContext(GameContext);
 
   let scale = defaultTo(50, width) / 50;
@@ -17,7 +17,7 @@ const Hexagon = (props) => {
   let y = 21.650625 * scale;
 
   let font = getFontProps(props, 16 * scale, undefined,
-    defaultTo(undefined, game.info.valueFontFamily));
+    multiDefaultTo(undefined, fontFamily, game.info.valueFontFamily));
   let strokeDashArray = dashed ? `${width / 7.142857143} ${width / 7.142857143}` : undefined;
 
   return (
@@ -31,7 +31,7 @@ const Hexagon = (props) => {
                 strokeWidth={defaultTo(2, borderWidth)}
                 strokeDasharray={strokeDashArray}
                 strokeLinecap="round" />
-          <Text {...font} text={text} color={textColor}/>
+          <Text {...font} text={text} color={textColor} fontFamily={fontFamily}/>
         </g>
       )}
     </Color>

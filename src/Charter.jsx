@@ -6,7 +6,7 @@ import CompanyToken from "./tokens/CompanyToken";
 import Token from "./tokens/Token";
 import Phase from "./Phase";
 import Color from "./util/Color";
-import { unitsToCss } from "./util";
+import { unitsToCss, multiDefaultTo } from "./util";
 import Currency from "./util/Currency";
 
 import addIndex from "ramda/src/addIndex";
@@ -27,12 +27,23 @@ const Charter = ({
   game,
   company,
   backgroundColor,
-  variant
+  variant,
+  fontFamily,
+  fontSize,
+  fontStyle,
+  fontWeight,
+  halfWidth
 }) => {
   const { config } = useContext(ConfigContext);
   const charterStyle = config.charters.style;
-  const halfWidthCharters = config.charters.halfWidth;
+  const showPhaseChart = config.charters.showPhaseChart;
+  const showTurnOrder = config.charters.showTurnOrder;
   const blackBand = config.charters.blackBand;
+  fontFamily = multiDefaultTo("display", fontFamily);
+  fontSize = multiDefaultTo(20, fontSize);
+  fontWeight = multiDefaultTo("bold", fontWeight);
+  fontStyle = multiDefaultTo("normal", fontStyle);
+  let lineHeight = fontSize * 1.1;
  
   let tokenSpots = [];
   if (tokens) {
@@ -49,10 +60,10 @@ const Charter = ({
             <ColorContext.Provider value="companies">
               {companyToken}
             </ColorContext.Provider>
-            <g transform={`${halfWidthCharters ? "rotate(-90) " : ""}translate(0 39)`}>
+            <g transform={`${halfWidth ? "rotate(-90) " : ""}translate(0 39)`}>
               <Color context="companies">
                 {(c, t) => (
-                  <text fill={(charterStyle === "color" && !halfWidthCharters) ? t(c(color)) : c("black")}
+                  <text fill={(charterStyle === "color" && !halfWidth) ? t(c(color)) : c("black")}
                         fontSize="11" fontWeight="normal" textAnchor="middle">
                     <Currency value={label} type="token"/>
                   </text>
@@ -91,8 +102,8 @@ const Charter = ({
   return (
     <Color context="companies">
       {(c, t, _, p) => (
-        <div className={`cutlines${minor ? " cutlines--minor" : ""}${halfWidthCharters ? " cutlines--half" : ""}`}>
-          <div className={`charter ${minor ? "charter--minor " : ""}charter--${charterStyle}${halfWidthCharters ? " charter--half" : ""}`}>
+        <div className={`cutlines${minor ? " cutlines--minor" : ""}${halfWidth ? " cutlines--half" : ""}`}>
+          <div className={`charter ${minor ? "charter--minor " : ""}charter--${charterStyle}${halfWidth ? " charter--half" : ""}`}>
             <div className="charter__bleed"
                  style={{
                    backgroundColor: p(backgroundColor || "white")
@@ -106,8 +117,17 @@ const Charter = ({
               />
               <div className="charter__body">
                 <div style={{ color: t(c(charterStyle === "color" ? color : "white")),
-                              paddingRight: halfWidthCharters ? null : unitsToCss(12.5 + (65 * tokens.length)) }}
-                     className="charter__name"><div>{name}</div></div>
+                              paddingRight: halfWidth ? null : unitsToCss(12.5 + (65 * tokens.length)) }}
+                     className="charter__name">
+                     <div style={{ fontFamily:`${fontFamily}`,
+                                   fontSize:`${fontSize}pt`,
+                                   lineHeight:`${lineHeight}pt`,
+                                   fontWeight:`${fontWeight}`,
+                                   fontStyle:`${fontStyle}`
+                     }}>
+                       {name}
+                     </div>
+                </div>
                 {charterStyle === "color" && (
                   <div className="charter__logo">
                     <svg viewBox="-37.5 -37.5 75 75">
@@ -121,27 +141,31 @@ const Charter = ({
                 )}
                 {false && <div className="charter__game">{game}</div>}
                 <div className="charter__tokens">
-                  {halfWidthCharters && "Tokens"}
+                  {halfWidth && "Tokens"}
                   {tokenSpots}
                 </div>
-                {halfWidthCharters && (
+                {halfWidth && (
                   <div className="charter__assets">
                     Assets
-                    <dl>{minor || turnNodes}</dl>
+                    {showTurnOrder && (
+                      <dl>{minor || turnNodes}</dl>
+                    )}
                   </div>
                 )}
-                {halfWidthCharters || (
+                {halfWidth || (
                   <div className="charter__trains">
                     Trains
-                    <div className="charter__phase">
-                      <Phase phases={phases}
-                             trains={trains}
-                             minor={!!minor}
-                             company={company.abbrev} />
-                    </div>
+                    {showPhaseChart && (
+                      <div className="charter__phase">
+                        <Phase phases={phases}
+                               trains={trains}
+                               minor={!!minor}
+                               company={company.abbrev} />
+                      </div>
+                    )}
                   </div>
                 )}
-                {halfWidthCharters || (
+                {halfWidth || (
                   <div className="charter__treasury">
                     Treasury
                     {company.capital && (
@@ -149,7 +173,9 @@ const Charter = ({
                         <Currency value={company.capital} type="treasury"/>
                       </div>
                     )}
-                    <dl>{minor || turnNodes}</dl>
+                    {showTurnOrder && (
+                      <dl>{minor || turnNodes}</dl>
+                    )}
                   </div>
                 )}
                 {variant && <div className="charter__variant">{variant}</div>}

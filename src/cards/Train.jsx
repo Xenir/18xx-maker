@@ -40,6 +40,8 @@ const Train = ({ train, trains, blackBand }) => {
     players,
     backgroundColor,
     image,
+    imagePaddingTop,
+    imageWidth,
     phased,
     phasedText,
     obsolete,
@@ -56,7 +58,7 @@ const Train = ({ train, trains, blackBand }) => {
   let notes = [];
 
   nameFontFamily = defaultTo("display", nameFontFamily);
-  let nameFontSizeInch = defaultTo(0.6875, nameFontSize / 72);
+  let nameFontSizeInch = defaultTo(0.5, nameFontSize / 72);
 
   priceFontFamily = defaultTo("display", priceFontFamily);
   let priceFontSizeInch = defaultTo( 0.25, priceFontSize / 72);
@@ -201,6 +203,7 @@ const Train = ({ train, trains, blackBand }) => {
         image = "4T";
         break;
       case "gray":
+      case "grey":
         image = "6T";
         break;
       default:
@@ -219,14 +222,22 @@ const Train = ({ train, trains, blackBand }) => {
                    backgroundColor: c(backgroundColor || "white")
                  }}>
               {config.trains.style === "color" && (<div className="train__hr"
-                                                        style={{
-                                                          backgroundColor: c(color),
-                                                          borderBottom: (color === "white" || config.cards.blackBand) ? "2px solid black" : null
-                                                        }}
-                                                   />)}
+                style={{
+                  backgroundColor: c(color),
+                  borderBottom: (color === "white" || config.cards.blackBand) ?
+                                "2px solid black" : null
+                }}
+              />)}
               <div className="card__body">
                 {config.trains.images && (
-                  <div className={`train__image train__image--${image}`}><img alt={`${color} ${name} train`} src={require(`../images/trains/${image}.png`)}/></div>
+                  <div className={`train__image train__image--${image}`}>
+                    <img alt={`${color} ${name} train`}
+                         style={{
+                            paddingTop: `${imagePaddingTop}`,
+                            width: `${imageWidth}`
+                         }}
+                         src={require(`../images/trains/${image}.png`)}/>
+                  </div>
                 )}
                 <div className="train__name"
                   style={{
@@ -237,7 +248,6 @@ const Train = ({ train, trains, blackBand }) => {
                 </div>
                 <div className="train__price"
                   style={{
-                    backgroundColor: config.trains.style === "color" ? c(color) : null,
                     color: config.trains.style === "color" ? t(c(color)) : c(color),
                     fontSize: `${priceFontSizeInch}in`,
                     fontFamily: `${priceFontFamily}`

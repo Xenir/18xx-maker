@@ -1,20 +1,13 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import GameContext from "../context/GameContext";
 import Color from "../util/Color";
-import defaultTo from "ramda/src/defaultTo";
+import { multiDefaultTo } from "../util";
 
-const RouteBonus = ({
-  value,
-  size,
-  fillColor,
-  strokeColor,
-  strokeWidth,
-  textColor,
-}) => {
+const RouteBonus = ({ value, size, fontFamily, fillColor, strokeColor, strokeWidth, textColor }) => {
   const { game } = useContext(GameContext);
-  let fontFamily = defaultTo("display", game.info.valueFontFamily);
-  size = size || 14;
-  let width = ((size * 5.0) / 14.0) * value.length;
+  fontFamily = multiDefaultTo("display", fontFamily, game.info.valueFontFamily);
+  size = multiDefaultTo(14, size, game.info.valueFontSize);
+  let width = size * 5.0 / 14.0 * value.length;
   let height = size + 6;
   fillColor = fillColor || "white";
   strokeColor = strokeColor || "black";
@@ -23,14 +16,10 @@ const RouteBonus = ({
 
   return (
     <Color>
-      {(c, t, s, p) => (
+      {(c,t,s,p) => (
         <g>
           <polygon
-            points={`${-width - 10},0 ${-width},${height * 0.5} ${width},${
-              height * 0.5
-            } ${width + 10},0 ${width},${height * -0.5} ${-width},${
-              height * -0.5
-            }`}
+            points={`${-width - 10},0 ${-width},${height*0.5} ${width},${height*0.5} ${width+10},0 ${width},${height*-0.5} ${-width},${height*-0.5}`}
             fill={c(fillColor)}
             stroke={c(strokeColor)}
             strokeWidth={strokeWidth}

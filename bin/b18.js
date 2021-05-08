@@ -28,6 +28,28 @@ const capitalize = R.compose(
   R.juxt([R.compose(R.toUpper, R.head), R.tail])
 );
 
+const tileColors = [
+  "yellow",
+  "yellow/green",
+  "green",
+  "green/brown",
+  "brown",
+  "brown/gray",
+  "gray",
+  "offboard",
+  "water",
+  "mountain",
+  "tunnel",
+  "other",
+  "none",
+];
+const colorSort = R.compose(
+  tileColors.indexOf.bind(tileColors),
+  R.prop("color"),
+  R.defaultTo({ color: "other" })
+);
+const sortTiles = R.sortWith([R.ascend(colorSort)]);
+
 setup();
 
 // Startup server
@@ -51,13 +73,8 @@ const server = app.listen(9000);
   let author = process.argv[4];
 
   let gameDef = gameDefs[bname];
-  let game;
-  if (gameDef.local) {
-    game = require("../src/data/games/" + gameDef.file);
-  } else {
-    game = require("@18xx-maker/games/games/" + gameDef.file);
-  }
-  let tiles = require("@18xx-maker/games").tiles;
+  let game = require("../src/data/games/" + gameDef.file);
+  let tiles = require("../src/data/tiles/").default;
 
   const getTile = gutil.getTile(tiles, game.tiles || {});
 
@@ -110,6 +127,7 @@ const server = app.listen(9000);
   let counts = R.compose(
     R.countBy(R.identity),
     R.map(R.prop("color")),
+    sortTiles,
     R.uniq,
     R.map(getTile)
   )(R.keys(game.tiles));

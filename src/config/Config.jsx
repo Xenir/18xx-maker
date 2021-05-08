@@ -172,6 +172,8 @@ const Config = () => {
         <Typography variant="h5">Tiles</Typography>
         <Input name="tiles.id" label="Tile ID Location"
                description="This determines where to render the tile id"/>
+        <Input name="tiles.colorblind" label="Colorblind IDs"
+               description="This adds a colorblind safe shape indicating the tile color to the ID section of the tile" />
         <Input name="tiles.layout" label="Tile Sheet Layout"
                description="This determines how to lay out the tiles on the tile sheet. Offset is the style that tries to make as few cuts as possible. Individual just has each tile separate from the others, and die is meant from the custom die cutters that Deep Thought Games uses. Setting either die option overrides page size and the tile size option below."/>
         <Input name="tiles.width" label="Tile Width" dimension={true}
@@ -185,7 +187,7 @@ const Config = () => {
       <Divider/>
 
       <Box className={classes.configSection}>
-        <Typography variant="h5">Tiles</Typography>
+        <Typography variant="h5">Market</Typography>
         <Input name="stock.cell.width" label="Cell Width" dimension={true}
                description="This determines the default width of one stock market cell."/>
         <Input name="stock.cell.height" label="Cell Height" dimension={true}
@@ -210,14 +212,22 @@ const Config = () => {
         <Typography variant="h5">Charters</Typography>
         <Input name="charters.style" label="Charter Style"
                description="This lets you choose between two styles for charters. One is simular to Carth's style while the other includes more color at the top."/>
+        <Input name="charters.layout" label="Charter Layout"
+               description="Free tries to fill your page with two charters per page (by default, half width charters will change this). 3x1 and 3x2 are both designs that fit common die layouts. Either die option overrides the page size as well as the width, height and cutlines option below."/>
         <Input name="charters.halfWidth" label="Half Width Charters"
                description="This draws all charters (major and minor) as half width. They will take up half of the width of your page (minus cutlines)."/>
+        <Input name="charters.smallerMinors" label="Smaller Minors"
+               description="This draws minor charters smaller (height wise)."/>
         <Input name="charters.cutlines" label="Charter Cutlines Size" dimension={true}
                description="Set to 0 to disable any cutlines and have the charters next to each other"/>
         <Input name="charters.bleed" label="Charter Bleed Size" dimension={true}
                description="Set to 0 to disable any bleed, or set to a value to have a margin of this amount used as the bleed amount for printing."/>
         <Input name="charters.border" label="Charter Border Size"
                description="Set to 0 to disable any border, or set to a value to have a border of that many pixels drawn around the charter."/>
+        <Input name="charters.showPhaseChart" label="Show Phase Chart"
+               description="Whether or not to show the phase chart on charters."/>
+        <Input name="charters.showTurnOrder" label="Show Turn Order"
+               description="Whether or not to show the turn order on charters."/>
         <Input name="charters.blackBand" label="Charter Black Band"
                description="Whether or not to put a black border against the color section of the charter. Only relevent to &quot;color&quot; charters. Always put on white color charters."/>
       </Box>

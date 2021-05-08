@@ -1,29 +1,20 @@
-import React from "react";
+import React, { useContext} from "react";
+import GameContext from "../context/GameContext";
 import Color from "../util/Color";
 import * as uuid from "uuid";
 
-import { getFontProps } from "../util";
+import { getFontProps, multiDefaultTo } from "../util";
 
 import defaultTo from "ramda/src/defaultTo";
 
 const Name = (props) => {
-  let {
-    name,
-    strokeColor,
-    strokeWidth,
-    color,
-    bgColor,
-    path,
-    doRotation,
-    rotation,
-    reverse,
-    offset,
-    x,
-    y,
-    textLength,
-  } = props;
+  const { game } = useContext(GameContext);
+  let { name, fontSize, fontWeight, fontFamily, strokeColor, strokeWidth, color, bgColor, path, doRotation, rotation, reverse, offset, x, y, textLength } = props;
 
-  let font = getFontProps(props, 11, "bold", "display");
+  let font = getFontProps(props,
+    multiDefaultTo(11, fontSize, game.info.nameFontSize),
+    multiDefaultTo("bold", fontWeight, game.info.nameFontWeight),
+    multiDefaultTo("display", fontFamily, game.info.nameFontFamily));
 
   let nameNode;
 
@@ -34,11 +25,9 @@ const Name = (props) => {
         <defs>
           <path id={id} d={path} />
         </defs>
-        <textPath
-          startOffset={`${defaultTo(50, offset)}%`}
-          href={`#${id}`}
-          xlinkHref={`#${id}`}
-        >
+        <textPath startOffset={`${defaultTo(50, offset)}%`}
+                  href={`#${id}`}
+                  xlinkHref={`#${id}`}>
           {name}
         </textPath>
       </>
@@ -49,24 +38,21 @@ const Name = (props) => {
 
   y = defaultTo(0, y);
 
-  if (!path && reverse) {
-    y += 0.75 * font.fontSize;
+  if(!path && reverse) {
+    y += (0.75 * font.fontSize);
   }
 
   return (
     <Color>
-      {(c, t, s, p) => (
-        <text
-          dy={y}
-          dx={x}
-          transform={`rotate(${((doRotation && rotation) || 0) + 360})`}
-          fill={color ? p(color) : bgColor ? t(c(bgColor)) : p("black")}
-          strokeWidth={defaultTo(0, strokeWidth)}
-          stroke={c(defaultTo("black", strokeColor))}
-          {...font}
-          textLength={textLength}
-          textAnchor="middle"
-        >
+      {(c,t,s,p) => (
+        <text dy={y} dx={x}
+              transform={`rotate(${((doRotation && rotation) || 0) + 360})`}
+              fill={color ? p(color) : (bgColor ? t(c(bgColor)) : p("black"))}
+              strokeWidth={defaultTo(0, strokeWidth)}
+              stroke={c(defaultTo("black", strokeColor))}
+              {...font}
+              textLength={textLength}
+              textAnchor="middle" >
           {nameNode}
         </text>
       )}

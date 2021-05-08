@@ -4,6 +4,7 @@ import hash from "object-hash";
 
 import Position from "./Position";
 
+import HexContext from "./context/HexContext";
 import PhaseContext from "./context/PhaseContext";
 import ColorContext from "./context/ColorContext";
 import { useOrientation } from "./context/OrientationContext";
@@ -51,7 +52,7 @@ const makeBorder = track => (
   </Position>
 );
 
-const HexTile = ({ hex, id, mask, border, transparent, map }) => {
+const HexTile = ({ hex, id, mask, border, transparent, map, opacity }) => {
   const rotation = useOrientation();
 
   if (hex === undefined || hex === null) {
@@ -96,8 +97,8 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   ]);
 
   let allTracks = [
-    ...(hex.track || []),
-    ...R.map(obt => ({ ...obt, type: "offboard" }), hex.offBoardTrack || [])
+    ...R.map(obt => ({ ...obt, bgColor: `${hex.color}` }), hex.track || []),
+    ...R.map(obt => ({ ...obt, bgColor: `${hex.color}`, type: "offboard" }), hex.offBoardTrack || [])
   ];
   let tracks = getTracks(allTracks);
 
@@ -164,11 +165,11 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   );
 
   let labels = (
-    <Position data={hex.labels}>
+    <Position data={hex.labels} type="label">
       {l => <Label bgColor={hex.color} {...l} />}
     </Position>
   );
-  let icons = <Position data={hex.icons}>{i => <Icon {...i} />}</Position>;
+  let icons = <Position data={hex.icons} type="icon">{i => <Icon {...i} />}</Position>;
   let names = (
     <Position data={hex.names}>
       {n => <Name bgColor={hex.color} {...n} />}
@@ -198,7 +199,7 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   let bgShapes = <Position data={R.filter(s => s.background, hex.shapes || [])}>{s => <Shape {...s}/>}</Position>;
   let shapes = <Position data={R.reject(s => s.background, hex.shapes || [])}>{s => <Shape {...s}/>}</Position>;
   let terrain = (
-    <Position data={terrainHexes}>{t => <Terrain {...t} />}</Position>
+    <Position data={terrainHexes} type="terrain">{t => <Terrain {...t} />}</Position>
   );
   let bridges = (
     <Position data={hex.bridges}>{b => <Bridge {...b} />}</Position>
@@ -223,7 +224,7 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   let borders = (
     <Position data={hex.borders}>{b => <Border {...b} />}</Position>
   );
-  let values = <Position data={hex.values}>{v => <Value {...v} />}</Position>;
+  let values = <Position data={hex.values} type="value">{v => <Value {...v} />}</Position>;
   let industries = (
     <Position data={hex.industries}>{i => <Industry {...i} />}</Position>
   );
@@ -232,7 +233,7 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
     <Position data={hex.companies}>{c => <Company {...c} />}</Position>
   );
   let bonus = (
-    <Position data={hex.routeBonus}>{b => <RouteBonus {...b} />}</Position>
+    <Position data={hex.routeBonuses || hex.routeBonus}>{b => <RouteBonus {...b} />}</Position>
   );
   let tokens = (
     <ColorContext.Provider value="companies">
@@ -251,60 +252,63 @@ const HexTile = ({ hex, id, mask, border, transparent, map }) => {
   return (
     <g>
       <PhaseContext.Provider value={hex.color || "plain"}>
-        <g
-          mask={`url(#${mask || "hexMask"})`}
-          transform={`rotate(${rotation || 0})`}
-        >
-          <Hex
-            color={hex.color || "plain"}
-            transparent={transparent}
+        <HexContext.Provider value={hex}>
+          <g
+            mask={`url(#${mask || "hexMask"})`}
+            transform={`rotate(${rotation || 0})`}
+          >
+            <Hex
+              color={hex.color || "plain"}
+              transparent={transparent}
+              map={map}
+              opacity={opacity}
+            />
+
+            <g transform={`rotate(-${rotation})`}>
+              {bgShapes}
+              {goods}
+              {tunnelEntranceBorders}
+              {cityBorders}
+              {mediumCityBorders}
+              {townBorders}
+              {tracks}
+              {tunnelEntrances}
+              {cities}
+              {mediumCities}
+              {towns}
+              {boomtownBorders}
+              {boomtowns}
+              {centerTownBorders}
+              {centerTowns}
+              {values}
+              {labels}
+              {tokens}
+              {terrain}
+              {icons}
+              {divides}
+              {borders}
+            </g>
+          </g>
+
+          <HexBorder
+            removeBorders={hex.removeBorders}
+            border={border}
             map={map}
           />
+          {outsideCityBorders}
 
-          <g transform={`rotate(-${rotation})`}>
-            {bgShapes}
-            {goods}
-            {tunnelEntranceBorders}
-            {cityBorders}
-            {mediumCityBorders}
-            {townBorders}
-            {tracks}
-            {tunnelEntrances}
-            {cities}
-            {mediumCities}
-            {towns}
-            {boomtownBorders}
-            {boomtowns}
-            {centerTownBorders}
-            {centerTowns}
-            {values}
-            {labels}
-            {tokens}
-            {terrain}
-            {icons}
-            {divides}
-            {borders}
-          </g>
-        </g>
+          {id && <Id id={idBase} extra={idExtra} bgColor={hex.color} noID={hex.noID }/>}
 
-        <HexBorder
-          removeBorders={hex.removeBorders}
-          border={border}
-          map={map}
-        />
-        {outsideCityBorders}
-
-        {id && <Id id={idBase} extra={idExtra} />}
-
-        {outsideCities}
-        {bonus}
-        {industries}
-        {companies}
-        {names}
-        {shapes}
-        {tunnels}
-        {bridges}
-        {offBoardRevenue}
+          {outsideCities}
+          {bonus}
+          {industries}
+          {companies}
+          {names}
+          {shapes}
+          {tunnels}
+          {bridges}
+          {offBoardRevenue}
+        </HexContext.Provider>
       </PhaseContext.Provider>
     </g>
   );

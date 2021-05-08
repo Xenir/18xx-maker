@@ -12,11 +12,10 @@
     "currency": "$#"
   },
   "links": {
-    "bgg": "https://www.boardgamegeek.com/boardgame/227143/1867-railways-canada",
-    "rules": "http://www.all-aboardgames.com/home/ian-wilson-s-1867",
-    "purchase": "https://app.crowdox.com/projects/joshuastarr/1861-russia-1867-canada"
+    "bgg": "https://www.boardgamegeek.com/boardgame/292187/18611867",
+    "rules": "https://www.boardgamegeek.com/filepage/212807/18611867-rulebook",
+    "purchase": "https://www.grandtrunkgames.com/"
   },
-  "wip": true,
   "tokens": ["Round"],
   "ipo": false,
   "bank": 15000,
@@ -98,11 +97,13 @@
     {
       "name": "Operating Round",
       "steps": [
-        "Lay or upgrade track",
-        "Purchase a station",
-        "Run trains",
-        "Pay dividends or withhold revenue",
-        "Purchase trains"
+        "Redeem Shares",
+        "Lay Tile",
+        "Place Token",
+        "Run Trains",
+        "Revenue and Dividends",
+        "Pay Interests and Redeem Loans",
+        "Purchase Train"
       ],
       "ordered": true
     }
@@ -116,26 +117,15 @@
     },
     "ledges": [
       {
-        "color": "red",
+        "color": "hl4",
         "dashed": true,
         "width": 6,
-        "offset": -3,
+        "coords": ["10 0", "10 1", "16 1", "16 0", "10 0"]
+      },
+      {
+        "color": "black",
+        "width": 6,
         "coords": ["16 0", "16 1"]
-      },
-      {
-        "color": "brown",
-        "width": 6,
-        "coords": ["3 0", "3 1", "7 1", "7 0", "3 0"]
-      },
-      {
-        "color": "purple",
-        "width": 6,
-        "coords": ["14 0", "14 1", "18 1", "18 0", "14 0"]
-      },
-      {
-        "color": "red",
-        "width": 6,
-        "coords": ["7 0", "7 1", "14 1", "14 0", "7 0"]
       }
     ],
     "market": [
@@ -144,63 +134,63 @@
       45,
       {
         "value": 50,
-        "par": true
+        "legend": 0
       },
       {
         "value": 55,
-        "par": true
+        "legend": 0
       },
       {
         "value": 60,
-        "par": true
+        "legend": 0
       },
       {
         "value": 65,
-        "par": true
+        "legend": 0
       },
       {
         "value": 70,
-        "par": true
+        "legend": 1
       },
       {
         "value": 80,
-        "par": true
+        "legend": 1
       },
       {
         "value": 90,
-        "par": true
+        "legend": 1
       },
       {
         "value": 100,
-        "legend": 0
+        "legend": 1
       },
       {
         "value": 110,
-        "legend": 0
+        "legend": 1
       },
       {
         "value": 120,
-        "legend": 0
+        "legend": 1
       },
       {
         "value": 135,
-        "legend": 0
+        "legend": 1
       },
       {
         "value": 150,
-        "legend": 0
+        "legend": 2
       },
       {
         "value": 165,
-        "legend": 0
+        "legend": 2
       },
       {
         "value": 180,
-        "legend": 0
+        "legend": 2
       },
       {
         "value": 200,
-        "legend": 0
+        "legend": 2
       },
       220,
       245,
@@ -213,52 +203,26 @@
       490,
       540
     ],
-    "limits": [
-      {
-        "color": "brown",
-        "description": "Minor companies may start here",
-        "min": 50,
-        "max": 135
-      },
-      {
-        "color": "red",
-        "description": "Any company may start here",
-        "min": 70,
-        "max": 135
-      },
-      {
-        "color": "yellow",
-        "description": "Minor companies may convert here",
-        "min": 70,
-        "max": 135
-      },
-      {
-        "color": "purple",
-        "description": "Only Public Companies may start here",
-        "min": 150,
-        "max": 200
-      }
-    ],
     "legend": [
       {
-        "color": "yellow",
-        "description": "Minor companies may convert here",
-        "icon": "info"
-      },
-      {
-        "color": "brown",
-        "description": "Minor companies may start here",
+        "color": "hl1",
+        "description": "Minor Companies may start here",
         "icon": "certificate"
       },
       {
-        "color": "red",
+        "color": "hl2",
         "description": "Any company may start here",
         "icon": "certificate"
       },
       {
-        "color": "purple",
-        "description": "Only Public Companies may start here",
+        "color": "hl3",
+        "description": "Major Companies may start here",
         "icon": "certificate"
+      },
+      {
+        "color": "hl4",
+        "description": "Minor Companies may convert here",
+        "icon": "info"
       }
     ]
   },
@@ -322,7 +286,7 @@
     }
   ],
   "tokenTypes": {
-    "minor": [""],
+    "minor": ["Free"],
     "default": ["Free", "$20/hex", "$40/hex"]
   },
   "shareTypes": {
@@ -345,212 +309,238 @@
     {
       "name": "Canadian Northern Railway",
       "abbrev": "CNR",
-      "color": "green"
+      "logo": "1867/CNR",
+      "color": "darkGreen"
     },
     {
       "name": "Canadian Pacific Railway",
       "abbrev": "CPR",
+      "logo": "1867/CPR",
       "color": "red"
     },
     {
       "name": "Chesapeake and Ohio Railway",
       "abbrev": "C&O",
-      "color": "cyan"
+      "logo": "1867/CO",
+      "color": "darkBlue"
     },
     {
       "name": "Grand Trunk Railway",
       "abbrev": "GTR",
-      "color": "orange"
+      "logo": "1867/GTR",
+      "color": "brown"
     },
     {
       "name": "Great Western Railway",
       "abbrev": "GWR",
-      "color": "brown"
+      "logo": "1867/GWR",
+      "color": "darkTurquoise"
     },
     {
       "name": "Intercolonial Railway",
       "abbrev": "ICR",
-      "color": "yellow"
+      "logo": "1867/ICR",
+      "color": "darkGold"
     },
     {
       "name": "National Transcontinental Railway",
       "abbrev": "NTR",
-      "color": "tan"
+      "logo": "1867/NTR",
+      "color": "darkLime"
     },
     {
       "name": "New York Central Railroad",
       "abbrev": "NYC",
-      "color": "black"
+      "logo": "1867/NYC",
+      "color": "darkViolet"
     },
     {
-      "name": "Buffalo, Brantford, and Goderich",
-      "minor": true,
-      "abbrev": "BBG",
+      "name": "Canadian National",
+      "abbrev": "CN",
+      "logo": "1867/CN",
+      "color": "brightRed",
       "token": {
-        "color": "red",
-        "bar": "yellow"
+        "target": "brightRed",
+        "bar": true
       },
-      "color": "yellow"
+      "tokens": ["", "", "", "", "", "", "", ""],
+      "shares": []
     },
     {
       "name": "Brockville and Ottawa",
       "minor": true,
       "abbrev": "BO",
+      "logo": "1867/BO",
       "token": {
-        "color": "red",
+        "color": "turquoise",
         "bar": "yellow"
       },
-      "color": "yellow"
-    },
-    {
-      "name": "Canada Southern",
-      "minor": true,
-      "abbrev": "CS",
-      "token": {
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "Credit Valley Railway",
-      "minor": true,
-      "abbrev": "CV",
-      "token": {
-        "color": "purple",
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "Kingston and Pembroke",
-      "minor": true,
-      "abbrev": "KP",
-      "token": {
-        "color": "white",
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "London and Port Stanley",
-      "minor": true,
-      "abbrev": "LPS",
-      "token": {
-        "color": "blue",
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "Ottawa and Prescott",
-      "minor": true,
-      "abbrev": "OP",
-      "token": {
-        "color": "brightGreen",
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "St. Lawrence and Atlantic",
-      "minor": true,
-      "abbrev": "SLA",
-      "token": {
-        "color": "brown",
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "Toronto, Grey, and Bruce",
-      "minor": true,
-      "abbrev": "TGB",
-      "token": {
-        "color": "gray",
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "Toronto and Nipissing",
-      "minor": true,
-      "abbrev": "TN",
-      "token": {
-        "color": "orange",
-        "bar": "yellow"
-      },
-      "color": "yellow"
-    },
-    {
-      "name": "Algoma Eastern Railway",
-      "minor": true,
-      "abbrev": "TN",
-      "token": {
-        "color": "orange",
-        "bar": "green"
-      },
-      "color": "green"
-    },
-    {
-      "name": "Canada Atlantic Railway",
-      "minor": true,
-      "abbrev": "CA",
-      "token": {
-        "color": "green",
-        "bar": "green"
-      },
-      "color": "green"
-    },
-    {
-      "name": "New York and Ottawa",
-      "minor": true,
-      "abbrev": "NYO",
-      "token": {
-        "color": "cyan",
-        "bar": "green"
-      },
-      "color": "green"
+      "color": "turquoise"
     },
     {
       "name": "Pere Marquette Railway",
       "minor": true,
       "abbrev": "PM",
+      "logo": "1867/PM",
+      "token": {
+        "color": "lime",
+        "bar": "yellow"
+      },
+      "color": "lime"
+    },
+    {
+      "name": "Canada Southern",
+      "minor": true,
+      "abbrev": "CS",
+      "logo": "1867/CS",
+      "token": {
+        "color": "lightBlue",
+        "bar": "yellow"
+      },
+      "color": "lightBlue"
+    },
+    {
+      "name": "Credit Valley Railway",
+      "minor": true,
+      "abbrev": "CV",
+      "logo": "1867/CV",
       "token": {
         "color": "blue",
-        "bar": "green"
+        "bar": "yellow"
       },
-      "color": "green"
+      "color": "blue"
+    },
+    {
+      "name": "Kingston and Pembroke",
+      "minor": true,
+      "abbrev": "KP",
+      "logo": "1867/KP",
+      "token": {
+        "color": "navyBlue",
+        "bar": "yellow"
+      },
+      "color": "navyBlue"
     },
     {
       "name": "Quebec and Lake St. John",
       "minor": true,
       "abbrev": "QLS",
+      "logo": "1867/QLS",
       "token": {
-        "color": "brown",
+        "color": "inky",
         "bar": "green"
       },
-      "color": "green"
+      "color": "inky"
+    },
+    {
+      "name": "Canada Atlantic Railway",
+      "minor": true,
+      "abbrev": "CA",
+      "logo": "1867/CA",
+      "token": {
+        "color": "violet",
+        "bar": "green"
+      },
+      "color": "violet"
+    },
+    {
+      "name": "Ottawa and Prescott",
+      "minor": true,
+      "abbrev": "OP",
+      "logo": "1867/OP",
+      "token": {
+        "color": "pink",
+        "bar": "yellow"
+      },
+      "color": "pink"
     },
     {
       "name": "Toronto, Hamilton and Buffalo",
       "minor": true,
       "abbrev": "THB",
+      "logo": "1867/THB",
       "token": {
-        "color": "black",
+        "color": "tan",
         "bar": "green"
       },
-      "color": "green"
+      "color": "tan"
     },
     {
-      "name": "Canadian National",
-      "abbrev": "CN",
-      "color": "white",
+      "name": "Algoma Eastern",
+      "minor": true,
+      "abbrev": "AE",
+      "logo": "1867/AE",
       "token": {
-        "target": "red",
-        "bar": true
+        "color": "orange",
+        "bar": "green"
       },
-      "tokens": ["", "", "", "", "", "", "", ""],
-      "shares": []
+      "color": "orange"
+    },
+    {
+      "name": "New York and Ottawa",
+      "minor": true,
+      "abbrev": "NO",
+      "logo": "1867/NO",
+      "token": {
+        "color": "lightRed",
+        "bar": "yellow"
+      },
+      "color": "lightRed"
+    },
+    {
+      "name": "Toronto and Nipissing",
+      "minor": true,
+      "abbrev": "TN",
+      "logo": "1867/TN",
+      "token": {
+        "color": "darkRed",
+        "bar": "yellow"
+      },
+      "color": "darkRed"
+    },
+    {
+      "name": "London and Port Stanley",
+      "minor": true,
+      "abbrev": "LPS",
+      "logo": "1867/LPS",
+      "token": {
+        "color": "natural",
+        "bar": "green"
+      },
+      "color": "natural"
+    },
+    {
+      "name": "Buffalo, Brantford, and Goderich",
+      "minor": true,
+      "abbrev": "BBG",
+      "logo": "1867/BBG",
+      "token": {
+        "color": "gray",
+        "bar": "green"
+      },
+      "color": "gray"
+    },
+    {
+      "name": "St. Lawrence and Atlantic",
+      "minor": true,
+      "abbrev": "SLA",
+      "logo": "1867/SLA",
+      "token": {
+        "color": "lavender",
+        "bar": "green"
+      },
+      "color": "lavender"
+    },
+    {
+      "name": "Toronto, Grey, and Bruce",
+      "minor": true,
+      "abbrev": "TGB",
+      "logo": "1867/TGB",
+      "token": {
+        "color": "lightBrown",
+        "bar": "green"
+      },
+      "color": "lightBrown"
     }
   ],
   "phases": [
@@ -688,454 +678,324 @@
     }
   ],
   "tiles": {
-    "3": 2,
-    "4": 4,
-    "5": 2,
-    "6": 2,
-    "7": 3,
-    "8": 19,
-    "9": 24,
-    "14": 2,
-    "15": 4,
-    "16": 2,
-    "17": 2,
-    "18": 2,
-    "19": 2,
-    "20": 2,
-    "21": 2,
-    "22": 2,
-    "23": 5,
-    "24": 5,
-    "25": 4,
-    "26": 2,
-    "27": 2,
-    "28": 2,
-    "29": 2,
-    "30": 2,
-    "31": 2,
-    "39": 2,
-    "40": 2,
-    "41": 2,
-    "42": 2,
-    "43": 2,
-    "44": 2,
-    "45": 2,
-    "46": 2,
-    "47": 2,
-    "57": 2,
-    "58": 4,
-    "63": 3,
-    "70": 2,
-    "87": 2,
-    "88": 2,
-    "120": 1,
-    "122": 1,
-    "124": 1,
-    "201": 3,
-    "202": 3,
-    "204": 2,
-    "207": 5,
-    "208": 2,
-    "611": 3,
-    "619": 2,
-    "621": 2,
-    "622": 2,
-    "623": 3,
-    "624": 1,
-    "625": 1,
-    "626": 1,
-    "637": 1,
-    "639": 1,
-    "801": 2,
-    "911": 3,
-    "X1": {
+    "15": {
+      "quantity": 2,
       "color": "green",
-      "rotations": 6,
-      "values": [
+      "icons": [
         {
-          "angle": -20,
-          "percent": 0.88,
-          "value": 50
+          "type": "1867",
+          "noCircle": true,
+          "angle": 150,
+          "percent": 0.8,
+          "width": 15
         }
       ],
-      "labels": [
+      "values": [{ "angle": 210, "percent": 0.8, "value": 30 }],
+      "cities": [{ "size": 2 }],
+      "track": [{ "side": 1 }, { "side": 2 }, { "side": 3 }, { "side": 4 }]
+    },
+    "70": {
+      "quantity": 2,
+      "color": "brown",
+      "icons": [
         {
-          "angle": 216,
-          "percent": 0.9,
-          "label": "M"
-        }
-      ],
-      "cities": [
-        {
-          "angle": 60,
-          "percent": 0.6
-        },
-        {
-          "angle": 180,
-          "percent": 0.6
-        },
-        {
-          "angle": 300,
-          "percent": 0.6
+          "type": "1867",
+          "noCircle": true,
+          "angle": 270,
+          "percent": 0.8,
+          "width": 15
         }
       ],
       "track": [
+        { "type": "sharp", "side": 1 },
+        { "type": "gentle", "side": 1, "cross": "under" },
+        { "type": "gentle", "side": 2, "cross": "over" },
+        { "type": "sharp", "side": 3 }
+      ]
+    },
+    "120": {
+      "color": "green",
+      "icons": [
         {
-          "type": "straight",
-          "side": 1,
-          "cross": "over"
-        },
-        {
-          "type": "straight",
-          "side": 2,
-          "cross": "under"
-        },
-        {
-          "type": "straight",
-          "side": 3,
-          "cross": "under"
+          "type": "1867",
+          "noCircle": true,
+          "angle": 270,
+          "percent": 0.8,
+          "width": 15
         }
+      ],
+      "values": [
+        { "angle": 325, "percent": 0.6, "value": 60 },
+        { "angle": 215, "percent": 0.6, "value": 60 }
+      ],
+      "labels": [{ "label": "T", "angle": 90, "percent": 0.8 }],
+      "cities": [
+        { "angle": 30, "percent": 0.5, "companies": ["CN"] },
+        { "angle": 150, "percent": 0.5 }
+      ],
+      "track": [
+        { "type": "sharp", "side": 1 },
+        { "type": "sharp", "side": 3 }
+      ]
+    },
+    "122": {
+      "color": "brown",
+      "icons": [
+        {
+          "type": "1867",
+          "noCircle": true,
+          "angle": 150,
+          "percent": 1,
+          "width": 15
+        }
+      ],
+      "values": [{ "angle": 270, "percent": 0.85, "value": 80 }],
+      "labels": [{ "label": "T", "angle": 90, "percent": 0.85 }],
+      "cities": [
+        { "angle": 0, "percent": 0.39, "size": 2, "companies": ["CN"] },
+        { "angle": 180, "percent": 0.39, "size": 2 }
+      ],
+      "track": [
+        { "type": "sharp", "side": 1 },
+        { "type": "sharp", "side": 3 }
+      ]
+    },
+    "124": {
+      "color": "gray",
+      "icons": [
+        {
+          "type": "1867",
+          "noCircle": true,
+          "angle": 150,
+          "percent": 0.95,
+          "width": 15
+        }
+      ],
+      "labels": [{ "label": "T", "angle": 90, "percent": 0.9 }],
+      "values": [{ "angle": 270, "percent": 0.9, "value": 100 }],
+      "cities": [{ "size": 4, "companies": ["CN"] }],
+      "track": [{ "side": 1 }, { "side": 2 }, { "side": 3 }, { "side": 4 }]
+    },
+    "639": {
+      "color": "gray",
+      "icons": [
+        {
+          "type": "1867",
+          "noCircle": true,
+          "angle": 150,
+          "percent": 0.95,
+          "width": 15
+        }
+      ],
+      "values": [{ "angle": 270, "percent": 0.9, "value": 100 }],
+      "labels": [{ "label": "M", "angle": 90, "percent": 0.9 }],
+      "cities": [{ "size": 4, "companies": ["CN"] }],
+      "track": [
+        { "side": 1 },
+        { "side": 2 },
+        { "side": 3 },
+        { "side": 4 },
+        { "side": 5 },
+        { "side": 6 }
+      ]
+    },
+    "X1": {
+      "color": "green",
+      "rotations": 6,
+      "values": [{ "angle": 144, "percent": 0.9, "value": 50 }],
+      "labels": [{ "angle": 216, "percent": 0.9, "label": "M" }],
+      "icons": [
+        {
+          "type": "1867",
+          "noCircle": true,
+          "angle": 20,
+          "percent": 0.87,
+          "width": 15
+        }
+      ],
+      "cities": [
+        { "angle": 60, "percent": 0.6 },
+        { "angle": 180, "percent": 0.6 },
+        { "angle": 300, "percent": 0.6 }
+      ],
+      "track": [
+        { "type": "straight", "side": 1, "cross": "over" },
+        { "type": "straight", "side": 2, "cross": "under" },
+        { "type": "straight", "side": 3, "cross": "under" }
       ]
     },
     "X2": {
       "color": "green",
       "rotations": 6,
-      "values": [
+      "values": [{ "angle": 144, "percent": 0.9, "value": 50 }],
+      "labels": [{ "angle": 216, "percent": 0.9, "label": "M" }],
+      "icons": [
         {
-          "angle": -20,
-          "percent": 0.88,
-          "value": 50
-        }
-      ],
-      "labels": [
-        {
-          "angle": 216,
-          "percent": 0.9,
-          "label": "M"
+          "type": "1867",
+          "noCircle": true,
+          "angle": 20,
+          "percent": 0.87,
+          "width": 15
         }
       ],
       "cities": [
-        {
-          "angle": -105,
-          "percent": 0.6
-        },
-        {
-          "angle": 180,
-          "percent": 0.7
-        },
-        {
-          "angle": -300,
-          "percent": 0.6
-        }
+        { "angle": -105, "percent": 0.6 },
+        { "angle": 180, "percent": 0.7 },
+        { "angle": -300, "percent": 0.6 }
       ],
       "track": [
-        {
-          "type": "straight",
-          "side": 4,
-          "cross": "over"
-        },
-        {
-          "type": "gentle",
-          "side": 3,
-          "cross": "under"
-        },
-        {
-          "type": "gentle",
-          "side": 6,
-          "cross": "under"
-        }
+        { "type": "straight", "side": 4, "cross": "over" },
+        { "type": "gentle", "side": 3, "cross": "under" },
+        { "type": "gentle", "side": 6, "cross": "under" }
       ]
     },
     "X3": {
       "color": "green",
       "rotations": 6,
-      "values": [
+      "values": [{ "angle": 84, "percent": 0.8, "value": 50 }],
+      "labels": [{ "angle": 216, "percent": 0.9, "label": "M" }],
+      "icons": [
         {
-          "angle": -20,
-          "percent": 0.88,
-          "value": 50
-        }
-      ],
-      "labels": [
-        {
-          "angle": 216,
-          "percent": 0.9,
-          "label": "M"
+          "type": "1867",
+          "noCircle": true,
+          "angle": 260,
+          "percent": 0.85,
+          "width": 15
         }
       ],
       "cities": [
-        {
-          "angle": 30,
-          "percent": 0.5
-        },
-        {
-          "angle": 135,
-          "percent": 0.6
-        },
-        {
-          "angle": 300,
-          "percent": 0.6
-        }
+        { "angle": 30, "percent": 0.5 },
+        { "angle": 135, "percent": 0.6 },
+        { "angle": 300, "percent": 0.6 }
       ],
       "track": [
-        {
-          "type": "sharp",
-          "side": 1,
-          "cross": "over"
-        },
-        {
-          "type": "gentle",
-          "side": 4,
-          "cross": "over"
-        },
-        {
-          "type": "gentle",
-          "side": 3,
-          "cross": "under"
-        }
+        { "type": "sharp", "side": 1, "cross": "over" },
+        { "type": "gentle", "side": 4, "cross": "over" },
+        { "type": "gentle", "side": 3, "cross": "under" }
       ]
     },
     "X4": {
       "color": "green",
       "rotations": 6,
-      "values": [
+      "values": [{ "angle": 30, "percent": 0.7, "value": 50 }],
+      "labels": [{ "angle": 216, "percent": 0.9, "label": "M" }],
+      "icons": [
         {
-          "angle": -30,
-          "percent": 0.7,
-          "value": 50
-        }
-      ],
-      "labels": [
-        {
-          "angle": 216,
-          "percent": 0.9,
-          "label": "M"
+          "type": "1867",
+          "noCircle": true,
+          "angle": 140,
+          "percent": 0.85,
+          "width": 15
         }
       ],
       "cities": [
-        {
-          "angle": 90,
-          "percent": 0.6
-        },
-        {
-          "angle": 180,
-          "percent": 0.6
-        },
-        {
-          "angle": 270,
-          "percent": 0.6
-        }
+        { "angle": 90, "percent": 0.6 },
+        { "angle": 180, "percent": 0.6 },
+        { "angle": 270, "percent": 0.6 }
       ],
       "track": [
-        {
-          "type": "sharp",
-          "side": 2,
-          "cross": "over"
-        },
-        {
-          "type": "straight",
-          "side": 4,
-          "cross": "over"
-        },
-        {
-          "type": "sharp",
-          "side": 5,
-          "cross": "under"
-        }
+        { "type": "sharp", "side": 2, "cross": "over" },
+        { "type": "straight", "side": 4, "cross": "over" },
+        { "type": "sharp", "side": 5, "cross": "under" }
       ]
     },
     "X5": {
       "color": "brown",
-      "values": [
+      "values": [{ "angle": -30, "percent": 0.67, "value": 70 }],
+      "labels": [{ "label": "M", "angle": 210, "percent": 0.8 }],
+      "icons": [
         {
-          "angle": -30,
-          "percent": 0.75,
-          "value": 70
-        }
-      ],
-      "labels": [
-        {
-          "label": "M",
-          "angle": 210,
-          "percent": 0.8
+          "type": "1867",
+          "noCircle": true,
+          "angle": 30,
+          "percent": 0.85,
+          "width": 15
         }
       ],
       "cities": [
-        {
-          "rotation": 0,
-          "size": 2,
-          "angle": 270,
-          "percent": 0.4
-        },
-        {
-          "angle": 160,
-          "percent": 0.7
-        }
+        { "rotation": 0, "size": 2, "angle": 270, "percent": 0.4 },
+        { "angle": 160, "percent": 0.7 }
       ],
       "track": [
-        {
-          "side": 6,
-          "cross": "over"
-        },
-        {
-          "side": 2,
-          "cross": "over"
-        },
-        {
-          "side": 3,
-          "cross": "over"
-        },
-        {
-          "side": 4,
-          "cross": "under",
-          "type": "bent"
-        },
-        {
-          "side": 5,
-          "cross": "over"
-        }
+        { "side": 6, "cross": "over" },
+        { "side": 2, "cross": "over" },
+        { "side": 3, "cross": "over" },
+        { "side": 4, "cross": "under", "type": "bent" },
+        { "side": 5, "cross": "over" }
       ]
     },
     "X6": {
       "color": "brown",
-      "values": [
+      "values": [{ "angle": -30, "percent": 0.67, "value": 70 }],
+      "labels": [{ "label": "M", "angle": 210, "percent": 0.8 }],
+      "icons": [
         {
-          "angle": -30,
-          "percent": 0.825,
-          "value": 70
-        }
-      ],
-      "labels": [
-        {
-          "label": "M",
-          "angle": 210,
-          "percent": 0.8
+          "type": "1867",
+          "noCircle": true,
+          "angle": 90,
+          "percent": 0.8,
+          "width": 15
         }
       ],
       "cities": [
-        {
-          "rotation": 90,
-          "size": 2,
-          "angle": 90,
-          "percent": 0.2
-        },
-        {
-          "angle": -90,
-          "percent": 0.6
-        }
+        { "rotation": 90, "size": 2, "angle": 90, "percent": 0.2 },
+        { "angle": -90, "percent": 0.6 }
       ],
       "track": [
-        {
-          "side": 1
-        },
-        {
-          "side": 2
-        },
-        {
-          "side": 3
-        },
-        {
-          "side": 4
-        },
-        {
-          "side": 5,
-          "type": "sharp"
-        }
+        { "side": 1 },
+        { "side": 2 },
+        { "side": 3 },
+        { "side": 4 },
+        { "side": 5, "type": "sharp" }
       ]
     },
     "X7": {
       "color": "brown",
-      "values": [
+      "values": [{ "angle": 270, "percent": 0.85, "value": 70 }],
+      "labels": [{ "label": "M", "angle": 210, "percent": 0.8 }],
+      "icons": [
         {
-          "angle": 270,
+          "type": "1867",
+          "noCircle": true,
+          "angle": 90,
           "percent": 0.85,
-          "value": 70
-        }
-      ],
-      "labels": [
-        {
-          "label": "M",
-          "angle": 210,
-          "percent": 0.8
+          "width": 15
         }
       ],
       "cities": [
-        {
-          "rotation": 0,
-          "size": 2,
-          "angle": 0,
-          "percent": 0.3
-        },
-        {
-          "angle": 130,
-          "percent": 0.65
-        }
+        { "rotation": 0, "size": 2, "angle": 0, "percent": 0.3 },
+        { "angle": 130, "percent": 0.65 }
       ],
       "track": [
-        {
-          "side": 1,
-          "cross": "over"
-        },
-        {
-          "side": 2,
-          "cross": "over"
-        },
-        {
-          "side": 3,
-          "type": "gentle",
-          "cross": "under"
-        },
-        {
-          "side": 4,
-          "cross": "over"
-        },
-        {
-          "side": 6,
-          "cross": "over"
-        }
+        { "side": 1, "cross": "over" },
+        { "side": 2, "cross": "over" },
+        { "side": 3, "type": "gentle", "cross": "under" },
+        { "side": 4, "cross": "over" },
+        { "side": 6, "cross": "over" }
       ]
     },
     "X8": {
       "color": "gray",
       "rotations": 1,
-      "cities": [
+      "cities": [{ "size": 3 }],
+      "values": [{ "angle": 210, "percent": 0.8, "value": 60 }],
+      "labels": [{ "label": "O", "angle": 90, "percent": 0.8 }],
+      "icons": [
         {
-          "size": 3
-        }
-      ],
-      "values": [
-        {
-          "angle": 210,
-          "percent": 0.8,
-          "value": 60
-        }
-      ],
-      "labels": [
-        {
-          "label": "O",
-          "angle": 90,
-          "percent": 0.8
+          "type": "1867",
+          "noCircle": true,
+          "angle": 270,
+          "percent": 0.9,
+          "width": 15
         }
       ],
       "track": [
-        {
-          "side": 1
-        },
-        {
-          "side": 2
-        },
-        {
-          "side": 3
-        },
-        {
-          "side": 4
-        },
-        {
-          "side": 5
-        },
-        {
-          "side": 6
-        }
+        { "side": 1 },
+        { "side": 2 },
+        { "side": 3 },
+        { "side": 4 },
+        { "side": 5 },
+        { "side": 6 }
       ]
     }
   },
@@ -1409,6 +1269,7 @@
             }
           }
         ],
+        "track": [{ "side": 2, "type": "offboard", "color": "yellow" }],
         "hexes": ["G15"]
       },
       {
@@ -1546,6 +1407,7 @@
             }
           }
         ],
+        "track": [{ "side": 5, "type": "offboard", "color": "yellow" }],
         "hexes": ["K13"]
       },
       {
@@ -1557,16 +1419,13 @@
             }
           }
         ],
+        "track": [{ "side": 1, "type": "offboard", "color": "yellow" }],
         "hexes": ["L10"]
       },
       {
         "color": "plain",
-        "companies": [
-          {
-            "label": "C&StL",
-            "percent": 0.5
-          }
-        ],
+        "icons": [{ "type": "lock", "noCircle": true, "width": 35 }],
+        "names": [{ "name": "3", "color": "white", "y": "27" }],
         "centerTowns": [
           {
             "name": {
