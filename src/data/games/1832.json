@@ -447,11 +447,11 @@
     },
     {
       "name": "SR",
-      "color": "gray"
+      "color": "white"
     },
     {
       "name": "MR",
-      "color": "green"
+      "color": "xxpaper_blue"
     }
   ],
   "turns": [

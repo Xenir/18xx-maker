@@ -171,11 +171,11 @@
     },
     {
       "name": "AR",
-      "color": "gray"
+      "color": "white"
     },
     {
       "name": "SR",
-      "color": "gray"
+      "color": "white"
     }
   ],
   "turns": [
